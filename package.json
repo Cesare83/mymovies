@@ -1,0 +1,22 @@
+{
+  "name": "mymovies",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "mymovies"
+  },
+  "author": "Cesare83",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "eslint": "^5.16.0",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
+    "uuid": "^3.3.2"
+  }
+}
