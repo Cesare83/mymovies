@@ -30,13 +30,13 @@ app.use((err, req, res, next) => {
 //Users-Objects
 let users = [
   {
-    id: '1',
-    username : 'Cesare83',
-    password: 'password',
-    email: 'cesare.marchesi@yahoo.it',
-    birthday: ['23','10','1983']
+    id : '1',
+    username : 'cesare83',
+    password : 'password',
+    email : 'cesare.marchesi@yahoo.it',
+    birthday : '23/10/1983'
   }
-]
+];
 
 //Directors-Objects
 let directors = [
@@ -52,7 +52,7 @@ let directors = [
     birth: 'even director´s birthday',
     death: '10/10/2010',
   }
-]
+];
 
 //Movie-Objects
 let favouriteMovies = [
@@ -126,7 +126,7 @@ let favouriteMovies = [
     director: 'even director',
     image: 'tenth movie image'
   }
-]
+];
 
 //------------------------------------------------------------------------------
 //-----------------------------FUNCTIONS HERE-----------------------------------
@@ -135,12 +135,12 @@ let favouriteMovies = [
 //------------------------------GETTER FUNCTIONS--------------------------------
 //JSON-Obj with whole movies list
 app.get('/movies', (req, res) => {
-  res.json(topMovies)
+  res.json(favouriteMovies)
 });
 
 //JSON-Obj with movie details of selected movie
 app.get("/movies/:title", (req, res) => {
-  res.json(topMovies.find( (movie) => {
+  res.json(favouriteMovies.find( (movie) => {
     return movie.title === req.params.title
   }));
 });
@@ -169,9 +169,9 @@ app.post('/users', (req, res) => {
 
 //create a new favouriteMovie
 app.post('/movies', (req, res) => {
-  let newFavouriteMovies = req.body;
+  let newFavouriteMovie = req.body;
 
-  if (!newFavouriteMovies.title) {
+  if (!newFavouriteMovie.title) {
     const message = 'Missing title in request body';
       res.status(400).send(message);
   } else {
@@ -199,15 +199,15 @@ app.put('/users/:username', (req, res) => {
 });
 
 //-----------------------------DELETE FUNCTIONS---------------------------------
-//Delete user by ID
-app.delete("/users/:id", (req, res) => {
+//Delete user by name
+app.delete("/users/:username", (req, res) => {
   let user = users.find((user) => {
-     return user.id === req.params.id });
+     return user.username === req.params.username });
 
   if (user) {
     users.filter((obj) => {
-      return obj.id !== req.params.id });
-    res.status(201).send("User " + req.params.id + " was deleted.")
+      return obj.id !== req.params.username });
+    res.status(201).send("User " + req.params.username + " was deleted.")
   } else {
     res.status(404).send('No user found with the name ' + req.params.username)
   }
