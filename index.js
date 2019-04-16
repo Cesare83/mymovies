@@ -106,7 +106,7 @@ let directors = [
 let favouriteMovies = [
   {
     title : 'Sideways',
-    description: "Sideways is a 2004 American comedy-drama film directed by Alexander Payne and written by Jim Taylor and Payne. A film adaptation of Rex Pickett's novel of the same name, Sideways follows two men in their forties, Miles Raymond (Paul Giamatti), a depressed teacher and unsuccessful writer, and Jack Cole (Thomas Haden Church), a past-his-prime actor, who take a week-long road trip to Santa Barbara County wine country to celebrate Jack's upcoming wedding. Sandra Oh and Virginia Madsen also star. The film premiered at the Toronto International Film Festival on September 13, 2004, and was released in the United States on October 22, 2004. Sideways won the Academy Award for Best Adapted Screenplay, and was nominated for Best Picture, Best Director, Best Supporting Actor (Haden Church) and Best Supporting Actress (Madsen).",
+    description: 'Sideways is a 2004 American comedy-drama film directed by Alexander Payne and written by Jim Taylor and Payne. A film adaptation of Rex Pickett´s novel of the same name, Sideways follows two men in their forties, Miles Raymond (Paul Giamatti), a depressed teacher and unsuccessful writer, and Jack Cole (Thomas Haden Church), a past-his-prime actor, who take a week-long road trip to Santa Barbara County wine country to celebrate Jack´s upcoming wedding. Sandra Oh and Virginia Madsen also star. The film premiered at the Toronto International Film Festival on September 13, 2004, and was released in the United States on October 22, 2004. Sideways won the Academy Award for Best Adapted Screenplay, and was nominated for Best Picture, Best Director, Best Supporting Actor (Haden Church) and Best Supporting Actress (Madsen).',
     genre: 'comedy, drama, romance',
     director: 'Alexander Payne',
     image: 'https://m.media-amazon.com/images/M/MV5BMTU0Mjg3MzkxOV5BMl5BanBnXkFtZTYwNDU1OTY3._V1_.jpg'
@@ -120,28 +120,28 @@ let favouriteMovies = [
   },
   {
     title : 'Pulp Fiction',
-    description: "Pulp Fiction is a 1994 American crime film written and directed by Quentin Tarantino; it is based on a story by Tarantino and Roger Avary.[4] Starring John Travolta, Samuel L. Jackson, Bruce Willis, Tim Roth, Ving Rhames, and Uma Thurman, it tells several stories of criminal Los Angeles. The film's title refers to the pulp magazines and hardboiled crime novels popular during the mid-20th century, known for their graphic violence and punchy dialogue.",
+    description: 'Pulp Fiction is a 1994 American crime film written and directed by Quentin Tarantino; it is based on a story by Tarantino and Roger Avary.[4] Starring John Travolta, Samuel L. Jackson, Bruce Willis, Tim Roth, Ving Rhames, and Uma Thurman, it tells several stories of criminal Los Angeles. The film´s title refers to the pulp magazines and hardboiled crime novels popular during the mid-20th century, known for their graphic violence and punchy dialogue.',
     genre: 'crime, drama',
     director: 'Quentin Tarantino',
     image: 'https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,686,1000_AL_.jpg'
   },
   {
     title : 'The Good, the Bad and the Ugly',
-    description: "The Good, the Bad and the Ugly is a 1966 Italian epic Spaghetti Western film directed by Sergio Leone and starring Clint Eastwood, Lee Van Cleef, and Eli Wallach in their respective title roles. Its screenplay was written by Age & Scarpelli, Luciano Vincenzoni and Leone (with additional screenplay material and dialogue provided by an uncredited Sergio Donati), based on a story by Vincenzoni and Leone. Director of photography Tonino Delli Colli was responsible for the film's sweeping widescreen cinematography, and Ennio Morricone composed the film's score including its main theme. It is an Italian-led production with co-producers in Spain, West Germany and the United States.",
+    description: 'The Good, the Bad and the Ugly is a 1966 Italian epic Spaghetti Western film directed by Sergio Leone and starring Clint Eastwood, Lee Van Cleef, and Eli Wallach in their respective title roles. Its screenplay was written by Age & Scarpelli, Luciano Vincenzoni and Leone (with additional screenplay material and dialogue provided by an uncredited Sergio Donati), based on a story by Vincenzoni and Leone. Director of photography Tonino Delli Colli was responsible for the film´s sweeping widescreen cinematography, and Ennio Morricone composed the film´s score including its main theme. It is an Italian-led production with co-producers in Spain, West Germany and the United States.',
     genre: 'spaghetti western',
     director: 'Sergio Leone',
     image: 'https://m.media-amazon.com/images/M/MV5BOTQ5NDI3MTI4MF5BMl5BanBnXkFtZTgwNDQ4ODE5MDE@._V1_SY1000_CR0,0,656,1000_AL_.jpg'
   },
   {
     title : 'Blade Runner',
-    description: "Blade Runner is a 1982 science fiction film directed by Ridley Scott, written by Hampton Fancher and David Peoples, and starring Harrison Ford, Rutger Hauer, and Sean Young. It is a loose adaptation of Philip K. Dick's novel Do Androids Dream of Electric Sheep? (1968). The film is set in a dystopian future Los Angeles of 2019, in which synthetic humans known as replicants are bio-engineered by the powerful Tyrell Corporation to work on off-world colonies. When a fugitive group of Nexus-6 replicants led by Roy Batty (Hauer) escapes back to Earth, burnt-out cop Rick Deckard (Ford) reluctantly agrees to hunt them down.",
+    description: 'Blade Runner is a 1982 science fiction film directed by Ridley Scott, written by Hampton Fancher and David Peoples, and starring Harrison Ford, Rutger Hauer, and Sean Young. It is a loose adaptation of Philip K. Dick´s novel Do Androids Dream of Electric Sheep? (1968). The film is set in a dystopian future Los Angeles of 2019, in which synthetic humans known as replicants are bio-engineered by the powerful Tyrell Corporation to work on off-world colonies. When a fugitive group of Nexus-6 replicants led by Roy Batty (Hauer) escapes back to Earth, burnt-out cop Rick Deckard (Ford) reluctantly agrees to hunt them down.',
     genre: 'sci-fi, thriller',
     director: 'Ridley Scott',
     image: 'https://m.media-amazon.com/images/M/MV5BNzQzMzJhZTEtOWM4NS00MTdhLTg0YjgtMjM4MDRkZjUwZDBlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SY1000_CR0,0,671,1000_AL_.jpg'
   },
   {
     title : 'The Lives of Others',
-    description: "The Lives of Others is a 2006 German drama film, marking the feature film debut of filmmaker Florian Henckel von Donnersmarck, about the monitoring of East Berlin residents by agents of the Stasi, the GDR's secret police. It stars Ulrich Mühe as Stasi Captain Gerd Wiesler, Ulrich Tukur as his superior Anton Grubitz, Sebastian Koch as the playwright Georg Dreyman, and Martina Gedeck as Dreyman's lover, a prominent actress named Christa-Maria Sieland.",
+    description: 'The Lives of Others is a 2006 German drama film, marking the feature film debut of filmmaker Florian Henckel von Donnersmarck, about the monitoring of East Berlin residents by agents of the Stasi, the GDR´s secret police. It stars Ulrich Mühe as Stasi Captain Gerd Wiesler, Ulrich Tukur as his superior Anton Grubitz, Sebastian Koch as the playwright Georg Dreyman, and Martina Gedeck as Dreyman´s lover, a prominent actress named Christa-Maria Sieland.',
     genre: 'drama, thriller',
     director: 'Florian Henckel von Donnersmarck',
     image: 'https://m.media-amazon.com/images/M/MV5BNDUzNjYwNDYyNl5BMl5BanBnXkFtZTcwNjU3ODQ0MQ@@._V1_.jpg'
@@ -155,21 +155,21 @@ let favouriteMovies = [
   },
   {
     title : 'The Big Lebowski',
-    description: "The Big Lebowski (/ləˈbaʊski/) is a 1998 crime comedy film written, produced, and directed by Joel and Ethan Coen. It stars Jeff Bridges as Jeffrey 'The Dude' Lebowski, a Los Angeles slacker and avid bowler. He is assaulted as a result of mistaken identity, after which The Dude learns that a millionaire also named Jeffrey Lebowski was the intended victim. The millionaire Lebowski's trophy wife is kidnapped, and he commissions The Dude to deliver the ransom to secure her release; but the plan goes awry when the Dude's friend Walter Sobchak (John Goodman) schemes to keep the ransom money. Julianne Moore, Steve Buscemi, David Huddleston, and John Turturro also appear, in supporting roles.",
+    description: 'The Big Lebowski (/ləˈbaʊski/) is a 1998 crime comedy film written, produced, and directed by Joel and Ethan Coen. It stars Jeff Bridges as Jeffrey "The Dude" Lebowski, a Los Angeles slacker and avid bowler. He is assaulted as a result of mistaken identity, after which The Dude learns that a millionaire also named Jeffrey Lebowski was the intended victim. The millionaire Lebowski´s trophy wife is kidnapped, and he commissions The Dude to deliver the ransom to secure her release; but the plan goes awry when the Dude´s friend Walter Sobchak (John Goodman) schemes to keep the ransom money. Julianne Moore, Steve Buscemi, David Huddleston, and John Turturro also appear, in supporting roles.',
     genre: 'comedy, crime',
     director: 'Coen brothers',
     image: 'https://m.media-amazon.com/images/M/MV5BMTQ0NjUzMDMyOF5BMl5BanBnXkFtZTgwODA1OTU0MDE@._V1_SY1000_CR0,0,670,1000_AL_.jpg'
   },
   {
     title : 'Amores Perros',
-    description: "Amores perros is a 2000 Mexican crime drama film directed by Alejandro González Iñárritu and written by Guillermo Arriaga. Amores perros is the first installment in González Iñárritu's 'Trilogy of Death', succeeded by 21 Grams and Babel. It is an anthology film constructed as a triptych: it contains three distinct stories connected by a car accident in Mexico City. The stories centre on a teenager in the slums who gets involved in dogfighting; a model who seriously injures her leg; and a mysterious hitman. The stories are linked in various ways, including the presence of dogs in each of them.",
+    description: 'Amores perros is a 2000 Mexican crime drama film directed by Alejandro González Iñárritu and written by Guillermo Arriaga. Amores perros is the first installment in González Iñárritu´s "Trilogy of Death", succeeded by 21 Grams and Babel. It is an anthology film constructed as a triptych: it contains three distinct stories connected by a car accident in Mexico City. The stories centre on a teenager in the slums who gets involved in dogfighting; a model who seriously injures her leg; and a mysterious hitman. The stories are linked in various ways, including the presence of dogs in each of them.',
     genre: 'drama, thriller',
     director: 'Alejandro González Iñárritu',
     image: 'https://m.media-amazon.com/images/M/MV5BMWJhOTg5MWQtYTJjMi00YmFkLTg4ODgtYmU2YWVhODQ4ZDM3XkEyXkFqcGdeQXVyMTAwMzUyOTc@._V1_.jpg'
   },
   {
     title : 'The Last Emperor',
-    description: "The Last Emperor is a 1987 British-Italian epic biographical drama film about the life of Puyi, the last Emperor of China, whose autobiography was the basis for the screenplay written by Mark Peploe and Bernardo Bertolucci. Independently produced by Jeremy Thomas, it was directed by Bertolucci and released in 1987 by Columbia Pictures. Puyi's life is depicted from his ascent to the throne as a small boy to his imprisonment and political rehabilitation by the Communist Party of China. The film stars John Lone as Puyi, with Joan Chen, Peter O'Toole, Ruocheng Ying, Victor Wong, Dennis Dun, Ryuichi Sakamoto, Maggie Han, Ric Young, Vivian Wu, and Chen Kaige. It was the first Western feature film authorized by the People's Republic of China to film in the Forbidden City in Beijing. It won 9 Academy Awards, including Best Picture and Best Director, at the 60th iteration of the event.",
+    description: 'The Last Emperor is a 1987 British-Italian epic biographical drama film about the life of Puyi, the last Emperor of China, whose autobiography was the basis for the screenplay written by Mark Peploe and Bernardo Bertolucci. Independently produced by Jeremy Thomas, it was directed by Bertolucci and released in 1987 by Columbia Pictures. Puyi´s life is depicted from his ascent to the throne as a small boy to his imprisonment and political rehabilitation by the Communist Party of China. The film stars John Lone as Puyi, with Joan Chen, Peter O´Toole, Ruocheng Ying, Victor Wong, Dennis Dun, Ryuichi Sakamoto, Maggie Han, Ric Young, Vivian Wu, and Chen Kaige. It was the first Western feature film authorized by the People´s Republic of China to film in the Forbidden City in Beijing. It won 9 Academy Awards, including Best Picture and Best Director, at the 60th iteration of the event.',
     genre: 'biography, drama, history',
     director: 'Bernardo Bertolucci',
     image: 'https://m.media-amazon.com/images/M/MV5BZTk0NDU4YmItOTk0ZS00ODc2LTkwNGItNWI5MDJkNTJiYWMxXkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_.jpg'
@@ -187,14 +187,14 @@ app.get('/movies', (req, res) => {
 });
 
 //JSON-Obj with movie details of selected movie
-app.get("/movies/:title", (req, res) => {
+app.get('/movies/:title', (req, res) => {
   res.json(favouriteMovies.find( (movie) => {
     return movie.title === req.params.title
   }));
 });
 
 //JSON-Obj with director details of selected director
-app.get("/directors/:name", (req, res) => {
+app.get('/directors/:name', (req, res) => {
   res.json(directors.find( (director) => {
     return director.name === req.params.name
   }));
@@ -248,14 +248,14 @@ app.put('/users/:username', (req, res) => {
 
 //-----------------------------DELETE FUNCTIONS---------------------------------
 //Delete user by name
-app.delete("/users/:username", (req, res) => {
+app.delete('/users/:username', (req, res) => {
   let user = users.find((user) => {
      return user.username === req.params.username });
 
   if (user) {
     users.filter((obj) => {
       return obj.id !== req.params.username });
-    res.status(201).send("User " + req.params.username + " was deleted.")
+    res.status(201).send('User ' + req.params.username + ' was deleted.')
   } else {
     res.status(404).send('No user found with the name ' + req.params.username)
   }
