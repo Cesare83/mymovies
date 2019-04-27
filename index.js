@@ -2,14 +2,25 @@
 //-------------------------------IMPLEMENT PACKAGES-----------------------------
 //------------------------------------------------------------------------------
 
-//requiring packages
+//require packages
 const express = require('express'),
   morgan = require('morgan'),
   bodyParser = require('body-parser'),
-  uuid = require('uuid');
+  uuid = require('uuid'),
+  mongoose = require('mongoose');
 
+//require mongoose models
+const Models = require('./models.js');
+//declare models
+const Movies = Models.Movie;
+const Users = Models.User;
+const Genres = Models.Genre;
+const Directors = Models.Director;
+//route Mongoose to Database myMoviesDB
+mongoose.connect('mongodb://localhost:27017/myMoviesDB', {useNewUrlParser: true});
+
+//declare express var
 const app = express();
-
 //route requests for static files to public folder
 app.use(express.static('public'));
 //invoke morgan => requests logged used Morgan´s common format!! (::1 - - [30/Nov/2018:05:43:09 +0000] 'GET /secreturl HTTP/1.1' 200 51)
