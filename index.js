@@ -38,7 +38,8 @@ app.use((err, req, res, next) => {
 //-----------------------------FUNCTIONS HERE-----------------------------------
 //------------------------------------------------------------------------------
 
-//------------------------------GETTER FUNCTIONS--------------------------------
+//-------------------------------GET FUNCTIONS----------------------------------
+
 //Get a JSON-Obj with whole movies list
 app.get('/movies', (req, res) => {
   Movies.find()
@@ -88,78 +89,118 @@ app.get('/directors/:name', (req, res) => {
 });
 
 //-----------------------------POST FUNCTIONS-----------------------------------
+
 //create a new user
+
+/*Input is a JSON Object containing:
+ID: Integer,
+Username: String,
+Password: String,
+Email: String,
+Birthday: Date
+*/
+
 app.post('/users', (req, res) => {
-  let newUser = req.body;
-
-  if (!newUser.username) {
-    const message = 'Missing username in request body';
-      res.status(400).send(message);
-  } else {
-    newUser.id = uuid.v4();
-    users.push(newUser);
-    res.status(201).send(newUser);
-  }
-});
-
-//create a new favouriteMovie
-app.post('/movies', (req, res) => {
-  let newFavouriteMovie = req.body;
-
-  if (!newFavouriteMovie.title) {
-    const message = 'Missing title in request body';
-      res.status(400).send(message);
-  } else {
-    favouriteMovies.push(newFavouriteMovie);
-    res.status(201).send(newFavouriteMovie);
-  }
+  Users.findOne({Username: req.body.Username})
+  .then((user) => {
+    if(user) {
+      return res.status(400).send(req.body.Username + ' already exists');
+    } else {
+      Users.create({
+        Username: req.body.Username,
+        Password: req.body.Password,
+        EMail: req.body.EMail,
+        Birthday: req.body.Birthday
+      })
+      .then((user) => {
+        res.status(201).json(user)
+      })
+      .catch((error) => {
+        console.error(error);
+        res.status(500).send('Error: ' + error);
+      })
+    }
+  })
+  .catch((error) => {
+    console.error(error);
+    res.status(500).send('Error: ' + error);
+  });
 });
 
 //---------------------------------PUT FUNCTIONS--------------------------------
 //User´s details update by username
+/*Input is a JSON Object containing:
+ID: Integer,
+Username: String, (required)
+Password: String, (required)
+Email: String,    (required)
+Birthday: Date
+*/
 app.put('/users/:username', (req, res) => {
-  let user = users.find((user) => {
-    return user.username === req.params.username
-  });
+  Users.update({ Username : req.params.username }, { $set: {
+    Username : req.body.Username,
+    Password : req.body.Password,
+    EMail : req.body.EMail,
+    Birthday : req.body.Birthday,
+  }},
+  { new : true },  // This line makes sure that the updated document is returned
+  (error, updatedUser) => {
+    if(error) {
+      console.error(error);
+      res.status(500).send('Error: ' + error);
+    } else {
+      res.json(updatedUser)
+    }
+  })
+});
 
-  if (user) {
-    user.username = req.params.username;
-    user.password = req.params.password;
-    user.email = req.params.email;
-    user.birthday = req.params.birthday;
-    res.status(201).send('Personal data has been changed');
-  } else {
-    res.status(404).send('No user found with the name ' + req.params.username)
-  }
+//Add a favourite movie to the user profile
+app.put('/users/:username/movies/:movieid', (req, res) => {
+  Users.findOneAndUpdate({ Username : req.params.username }, { $push: {
+    FavouriteMovies : req.params.movieid
+  }},
+  { new : true },  // This line makes sure that the updated document is returned
+  (error, updatedUser) => {
+    if(error) {
+      console.error(error);
+      res.status(500).send('Error: ' + error);
+    } else {
+      res.json(updatedUser)
+    }
+  })
 });
 
 //-----------------------------DELETE FUNCTIONS---------------------------------
-//Delete user by name
-app.delete('/users/:username', (req, res) => {
-  let user = users.find((user) => {
-     return user.username === req.params.username });
 
-  if (user) {
-    users.filter((obj) => {
-      return obj.id !== req.params.username });
-    res.status(201).send('User ' + req.params.username + ' was deleted.')
-  } else {
-    res.status(404).send('No user found with the name ' + req.params.username)
-  }
+//Delete a favourite movie from user profile
+app.delete('/users/:username/movies/:movieid', (req, res) => {
+  Users.findOneAndUpdate({ Username : req.params.username }, { $pull: {
+    FavouriteMovies : req.params.movieid
+  }},
+  { new : true },  // This line makes sure that the updated document is returned
+  (error, updatedUser) => {
+    if(error) {
+      console.error(error);
+      res.status(500).send('Error: ' + error);
+    } else {
+      res.json(updatedUser)
+    }
+  })
 });
 
-//Delete favourite movie by title
-app.delete('/movies/:title', (req, res) => {
-  let favouriteMovie = favouriteMovies.find((obj) =>
-    { return obj.title === req.params.title });
-
-  if (favouriteMovies) {
-    favouriteMovies.filter( (obj) => {
-      return obj.title !== req.params.title});
-      res.status(201).send(req.params.title + ' has been deleted.')
-  } else {
-    res.status(404).send('No movie found with the name ' + req.params.title)
-  }
+app.delete('/users/:username', (req, res) => {
+  Users.findOneAndRemove({ Username : req.params.username})
+  .then((user) => {
+    if(!user) {
+      res.status(400).send(req.params.username + ' was not found')
+    } else {
+      res.status(200).send(req.params.username + ' was deleted')
+    }
+  })
+  .catch((error) => {
+    console.error(error);
+    res.status(500).send('Error: ' + error)
+  });
 });
 
 //request listener
