@@ -66,7 +66,7 @@ app.get('/movies/:title', (req, res) => {
 
 //Get a JSON OBJ with details of a genre selected by name
 app.get('/genres/:name', (req, res) => {
-  Genres.findOne({Name: req.params.title})
+  Genres.findOne({Name: req.params.name})
   .then((genre) => {
     res.status(201).json(genre)
   })
@@ -78,7 +78,7 @@ app.get('/genres/:name', (req, res) => {
 
 //Get a JSON OBJ with details of a director selected by name
 app.get('/directors/:name', (req, res) => {
-  Directors.findOne({Name: req.params.title})
+  Directors.findOne({Name: req.params.name})
   .then((director) => {
     res.status(201).json(director)
   })
@@ -109,7 +109,7 @@ app.post('/users', (req, res) => {
       Users.create({
         Username: req.body.Username,
         Password: req.body.Password,
-        EMail: req.body.EMail,
+        Email: req.body.Email,
         Birthday: req.body.Birthday
       })
       .then((user) => {
@@ -127,6 +127,22 @@ app.post('/users', (req, res) => {
   });
 });
 
+//Add a favourite movie to the user profile
+app.post('/users/:username/movies/:MovieID', (req, res) => {
+  Users.findOneAndUpdate({ Username : req.params.username }, { $push: {
+    FavouriteMovies : req.params.MovieID
+  }},
+  { new : true },  // This line makes sure that the updated document is returned
+  (error, updatedUser) => {
+    if(error) {
+      console.error(error);
+      res.status(500).send('Error: ' + error);
+    } else {
+      res.json(updatedUser)
+    }
+  })
+});
+
 //---------------------------------PUT FUNCTIONS--------------------------------
 //User´s details update by username
 /*Input is a JSON Object containing:
@@ -142,22 +158,6 @@ app.put('/users/:username', (req, res) => {
     Password : req.body.Password,
     EMail : req.body.EMail,
     Birthday : req.body.Birthday,
-  }},
-  { new : true },  // This line makes sure that the updated document is returned
-  (error, updatedUser) => {
-    if(error) {
-      console.error(error);
-      res.status(500).send('Error: ' + error);
-    } else {
-      res.json(updatedUser)
-    }
-  })
-});
-
-//Add a favourite movie to the user profile
-app.put('/users/:username/movies/:movieid', (req, res) => {
-  Users.findOneAndUpdate({ Username : req.params.username }, { $push: {
-    FavouriteMovies : req.params.movieid
   }},
   { new : true },  // This line makes sure that the updated document is returned
   (error, updatedUser) => {

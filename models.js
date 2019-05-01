@@ -16,7 +16,7 @@ var userSchema = mongoose.Schema({
  Password : {type: String, required: true},
  Email : {type: String, required: true},
  Birthday : Date,
- FavoriteMovies : [{ type : mongoose.Schema.Types.ObjectId, ref: 'Movie' }]
+ FavouriteMovies : [{ type : mongoose.Schema.Types.ObjectId, ref: 'Movie' }]
 });
 //define genreSchema
 var genreSchema = mongoose.Schema({
@@ -33,8 +33,8 @@ var directorSchema = mongoose.Schema({
 //create models
 var Movie = mongoose.model('Movie', movieSchema);
 var User = mongoose.model('User', userSchema);
-var Genre = mongoose.model('Movie', movieSchema);
-var Director = mongoose.model('User', userSchema);
+var Genre = mongoose.model('Genre', genreSchema);
+var Director = mongoose.model('Director', directorSchema);
 //export models
 module.exports.Movie = Movie;
 module.exports.User = User;
