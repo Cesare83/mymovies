@@ -10,6 +10,8 @@ const express = require('express'),
   mongoose = require('mongoose'),
   Models = require('./models.js'),
   passport = require('passport'),
+  cors = require('cors'),
+  validator = require('express-validator');
 
 require('./passport');
 
@@ -32,6 +34,10 @@ app.use(express.static('public'));
 app.use(morgan('common'));
 //invoke bodyParser for POST requests
 app.use(bodyParser.json());
+//invoke CORS
+app.use(cors());
+//invoke validator
+app.use(validator());
 
 //Error handling middleware func
 app.use((err, req, res, next) => {
@@ -106,9 +112,25 @@ Birthday: Date
 */
 
 app.post('/users', (req, res) => {
+  // Validation logic here for request
+  req.checkBody('Username', 'Username is required').notEmpty();
+  req.checkBody('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric()
+  req.checkBody('Password', 'Password is required').notEmpty();
+  req.checkBody('Email', 'Email is required').notEmpty();
+  req.checkBody('Email', 'Email does not appear to be valid').isEmail();
+
+  // check the validation object for errors
+  var errors = req.validationErrors();
+
+  if (errors) {
+    return res.status(422).json({ errors: errors });
+  }
+  var hashedPassword = Users.hashPassword(req.body.Password);
   Users.findOne({Username: req.body.Username})
+  // Search to see if a user with the requested username already exists
   .then((user) => {
     if(user) {
+      //If the user is found, send a response that it already exists
       return res.status(400).send(req.body.Username + ' already exists');
     } else {
       Users.create({
@@ -209,6 +231,7 @@ app.delete('/users/:username', passport.authenticate('jwt', {session: false}), (
 });
 
 //request listener
-app.listen(8080, () =>
-  console.log('Your app is listening on port 8080.')
-);
+var port = process.env.PORT || 3000;
+app.listen(port, "0.0.0.0", function() {
+console.log("Listening on Port 3000");
+});
