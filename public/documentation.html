@@ -64,6 +64,18 @@
       </tr>
       <tr>
         <td>GET</td>
+        <td>/genres/:name</td>
+        <td>Get a genre description by name</td>
+        <td>-</td>
+        <td class= "td-justify">JSON object with following keys:
+          <ul>
+            <li>name</li>
+            <li>description</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>GET</td>
         <td>/directors/:name</td>
         <td>Get a single director by name</td>
         <td>-</td>
@@ -86,9 +98,9 @@
             <li>password</li>
             <li>email</li>
             <li>bithday</li>
-            <li>favourite movie</li>
+            <li>[favourite movies]</li>
           </ul>
-          username is mandatory. Password and birthday may be updated later.
+          username is mandatory. Other keys may be updated later.
         </td>
         <td class= "td-justify">JSON object holding following data:
           <ul>
@@ -96,30 +108,24 @@
             <li>username</li>
             <li>password</li>
             <li>bithday</li>
-            <li>favourite movie</li>
+            <li>[favourite movies]</li>
           </ul>
         </td>
       </tr>
       <tr>
         <td>POST</td>
-        <td>/movies</td>
-        <td>Add a new movie to the favourite list</td>
-        <td class= "td-justify">JSON object with following keys:
+        <td>users/:username/movies/:movieID</td>
+        <td>Add a movie to the favourite list</td>
           <ul>
-            <li>title</li>
-            <li>description</li>
-            <li>genre</li>
-            <li>director</li>
-            <li>image</li>
+            <td>-</td>
           </ul>
-        </td>
         <td class= "td-justify">JSON object holding following data:
           <ul>
-            <li>title</li>
-            <li>description</li>
-            <li>genre</li>
-            <li>director</li>
-            <li>image</li>
+            <li>username</li>
+            <li>password</li>
+            <li>email</li>
+            <li>bithday</li>
+            <li>[favourite movies]</li>
           </ul>
         </td>
       </tr>
@@ -146,15 +152,15 @@
       </tr>
       <tr>
         <td>DELETE</td>
-        <td>/users/:username</td>
-        <td>Delete user by given username</td>
+        <td>/users/:username/movies/:movieID</td>
+        <td>Delete user favourite movie by movieID</td>
         <td>-</td>
         <td>-</td>
       </tr>
       <tr>
         <td>DELETE</td>
-        <td>/movies/:title</td>
-        <td>Delete favourite movie by given title</td>
+        <td>/users/:username</td>
+        <td>Delete user by given username</td>
         <td>-</td>
         <td>-</td>
       </tr>
