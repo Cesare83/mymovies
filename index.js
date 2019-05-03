@@ -30,7 +30,7 @@ const Directors = Models.Director;
 //mongoose.connect('mongodb://localhost:27017/myMoviesDB', {useNewUrlParser: true});
 
 //route Mongoose to HEROKU Database myMoviesDB
-mongoose.connect('mongodb+srv://Cesare83:JellyBelly23#@mymoviesdb-frbwv.mongodb.net/test?retryWrites=true', {useNewUrlParser: true});
+mongoose.connect('mongodb+srv://Cesare83:JellyBelly23#@mymoviesdb-frbwv.mongodb.net/myMoviesDB?retryWrites=true', {useNewUrlParser: true}, function(error){console.log(error)});
 
 //route requests for static files to public folder
 app.use(express.static('public'));
