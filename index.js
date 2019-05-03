@@ -17,6 +17,9 @@ require('./passport');
 
 const app = express();
 
+//invoke bodyParser for POST requests
+app.use(bodyParser.json());
+
 //import auth.is (remember always after body parser)
 var auth = require('./auth.js')(app);
 
@@ -36,8 +39,6 @@ mongoose.connect('mongodb+srv://Cesare83:JellyBelly23#@mymoviesdb-frbwv.mongodb.
 app.use(express.static('public'));
 //invoke morgan => requests logged used Morgan´s common format!! (::1 - - [30/Nov/2018:05:43:09 +0000] 'GET /secreturl HTTP/1.1' 200 51)
 app.use(morgan('common'));
-//invoke bodyParser for POST requests
-app.use(bodyParser.json());
 //invoke CORS
 app.use(cors());
 //invoke validator
@@ -56,7 +57,7 @@ app.use((err, req, res, next) => {
 //-------------------------------GET FUNCTIONS----------------------------------
 
 //Get a JSON-Obj with whole movies list
-app.get('/movies', passport.authenticate('jwt', {session: false}),(req, res) => {
+app.get('/movies', (req, res) => {
   Movies.find()
   .then((movies) => {
     res.status(201).json(movies)
@@ -186,7 +187,7 @@ Birthday: Date
 app.put('/users/:username', passport.authenticate('jwt', {session: false}), (req, res) => {
   Users.update({ Username : req.params.username }, { $set: {
     Username : req.body.Username,
-    Password : req.body.Password,
+    Password : hashPassword,
     EMail : req.body.EMail,
     Birthday : req.body.Birthday,
   }},
@@ -236,6 +237,6 @@ app.delete('/users/:username', passport.authenticate('jwt', {session: false}), (
 
 //request listener
 var port = process.env.PORT || 3000;
-app.listen(port, "0.0.0.0", function() {
-console.log("Listening on Port 3000");
+app.listen(port, '0.0.0.0', function() {
+console.log('Listening on Port ${port}'');
 });
