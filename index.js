@@ -118,7 +118,7 @@ Birthday: Date
 app.post('/users', (req, res) => {
   // Validation logic here for request
   req.checkBody('Username', 'Username is required').notEmpty();
-  req.checkBody('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric()
+  req.checkBody('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric();
   req.checkBody('Password', 'Password is required').notEmpty();
   req.checkBody('Email', 'Email is required').notEmpty();
   req.checkBody('Email', 'Email does not appear to be valid').isEmail();
