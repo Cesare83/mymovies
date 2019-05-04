@@ -14,33 +14,33 @@ const express = require('express'),
   validator = require('express-validator');
 
 require('./passport');
-
+//encapsulate express functionality
 const app = express();
-
+//invoke bodyParser for POST requests
+app.use(bodyParser.json());
 //import auth.is (remember always after body parser)
 var auth = require('./auth.js')(app);
+//invoke cors (!always after bodyParser!):
+app.use(cors());
+//invoke express-validator
+app.use(validator());
 
 //declare models
 const Movies = Models.Movie;
 const Users = Models.User;
 const Genres = Models.Genre;
 const Directors = Models.Director;
-//route Mongoose to Database myMoviesDB LOCAL
-//mongoose.connect('mongodb://localhost:27017/myMoviesDB', {useNewUrlParser: true});
-
-//route Mongoose to Database myMoviesDB REMOTE
-mongoose.connect('mongodb+srv://Cesare83:JellyBelly23#@mymoviesdb-frbwv.mongodb.net/myMoviesDB?retryWrites=true', {useNewUrlParser: true});
 
 //route requests for static files to public folder
 app.use(express.static('public'));
 //invoke morgan => requests logged used Morgan´s common format!! (::1 - - [30/Nov/2018:05:43:09 +0000] 'GET /secreturl HTTP/1.1' 200 51)
 app.use(morgan('common'));
-//invoke bodyParser for POST requests
-app.use(bodyParser.json());
-//invoke cors (!always after bodyParser!):
-app.use(cors());
-//invoke express-validator
-app.use(validator());
+
+//route Mongoose to Database myMoviesDB LOCAL
+//mongoose.connect('mongodb://localhost:27017/myMoviesDB', {useNewUrlParser: true});
+
+//route Mongoose to Database myMoviesDB REMOTE
+mongoose.connect('mongodb+srv://Cesare83:JellyBelly23#@mymoviesdb-frbwv.mongodb.net/myMoviesDB?retryWrites=true', {useNewUrlParser: true});
 
 //Error handling middleware func
 app.use((err, req, res, next) => {
