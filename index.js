@@ -45,7 +45,7 @@ mongoose.connect('mongodb+srv://Cesare83:cesare#23@mymoviesdb-frbwv.mongodb.net/
 //Error handling middleware func
 app.use((err, req, res, next) => {
   console.error(err.stack);
-  res.status(500).send('Oops ..something broke!');
+  res.status(500).send('Oops  ..something broke!');
 });
 
 //------------------------------------------------------------------------------
