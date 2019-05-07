@@ -39,8 +39,8 @@ app.use(morgan('common'));
 //route Mongoose to Database myMoviesDB LOCAL
 //mongoose.connect('mongodb://localhost:27017/myMoviesDB', {useNewUrlParser: true});
 
-//route Mongoose to Database myMoviesDB REMOTE
-mongoose.connect('mongodb+srv://Cesare83:cesare#23@mymoviesdb-frbwv.mongodb.net/myMoviesDB?retryWrites=true', {useNewUrlParser: true});
+route Mongoose to Database myMoviesDB REMOTE
+mongoose.connect('mongodb+srv://Cesare83:cesare#23@mymoviesb-frbwv.mongodb.net/mymoviesb?retryWrites=true', {useNewUrlParser: true});
 
 //Error handling middleware func
 app.use((err, req, res, next) => {
@@ -244,7 +244,14 @@ app.delete('/users/:username', passport.authenticate('jwt', {session: false}), (
   });
 });
 
-//request listener
+/*
+//request listener (local)
+app.listen(8080, () =>
+  console.log('Your app is listening on port 8080.')
+);
+*/
+
+//request listener (Online)
 var port = process.env.PORT || 3000;
 app.listen(port, "0.0.0.0", function() {
   console.log("Listening on Port 3000");
