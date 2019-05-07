@@ -193,10 +193,10 @@ app.put('/users/:username', passport.authenticate('jwt', {session: false}), (req
   if (errors) {
     return res.status(422).json({ errors: errors });
   }
-var hashPassword= Users.hashPassword(req.body.Password);
+var hashedPassword= Users.hashPassword(req.body.Password);
   Users.update({ Username : req.params.username }, { $set: {
     Username : req.body.Username,
-    Password : hashPassword,
+    Password : hashedPassword,
     EMail : req.body.EMail,
     Birthday : req.body.Birthday,
   }},
