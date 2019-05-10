@@ -11,7 +11,12 @@ const express = require('express'),
   passport = require('passport'),
   cors = require('cors'),
   Models = require('./models.js'),
-  validator = require('express-validator');
+  validator = require('express-validator'),
+  dotenv = require('dotenv');
+
+//accessing passwords saved in .dotenv file
+dotenv.config();
+const mongodbUri = process.env.mongodbUri;
 
 require('./passport');
 //encapsulate express functionality
@@ -40,7 +45,6 @@ app.use(morgan('common'));
 //mongoose.connect('mongodb://localhost:27017/myMoviesDB', {useNewUrlParser: true});
 
 //route Mongoose to Database myMoviesDB REMOTE
-const mongodbUri = 'mongodb+srv://Cesare83:cesare#23@mymoviesb-frbwv.mongodb.net/mymoviesb?retryWrites=true';
 mongoose.connect(mongodbUri, {useNewUrlParser: true});
 
 //Error handling middleware func
