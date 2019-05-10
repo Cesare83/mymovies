@@ -40,7 +40,8 @@ app.use(morgan('common'));
 //mongoose.connect('mongodb://localhost:27017/myMoviesDB', {useNewUrlParser: true});
 
 //route Mongoose to Database myMoviesDB REMOTE
-mongoose.connect('mongodb+srv://Cesare83:cesare#23@mymoviesb-frbwv.mongodb.net/mymoviesb?retryWrites=true', {useNewUrlParser: true});
+const mongobUri = 'mongodb+srv://Cesare83:cesare#23@mymoviesb-frbwv.mongodb.net/mymoviesb?retryWrites=true';
+mongoose.connect(mongodbUri, {useNewUrlParser: true});
 
 //Error handling middleware func
 app.use((err, req, res, next) => {
