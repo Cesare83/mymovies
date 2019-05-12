@@ -12,7 +12,7 @@ const express = require('express'),
   cors = require('cors'),
   Models = require('./models.js'),
   validator = require('express-validator'),
-  dotenv = require('dotenv');
+  dotenv = require('dotenv').config();
 
 require('./passport');
 //encapsulate express functionality
