@@ -17,6 +17,10 @@ const express = require('express'),
 require('./passport');
 //encapsulate express functionality
 const app = express();
+
+//route Mongoose to Database myMoviesDB REMOTE
+mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true});
+
 //invoke bodyParser for POST requests
 app.use(bodyParser.json());
 //import auth.is (remember always after body parser)
@@ -39,9 +43,6 @@ app.use(morgan('common'));
 
 //route Mongoose to Database myMoviesDB LOCAL
 //mongoose.connect('mongodb://localhost:27017/myMoviesDB', {useNewUrlParser: true});
-
-//route Mongoose to Database myMoviesDB REMOTE
-mongoose.connect(process.env.mongodbUri, {auth: {user:Cesare83, password:cesare%5F23} {useNewUrlParser: true}});
 
 //Error handling middleware func
 app.use((err, req, res, next) => {
