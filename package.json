@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Cesare83/mymovies.git"
+    "url": "git+https://github.com/Cesare83/mymovies.git"
   },
   "author": "Cesare83",
   "license": "ISC",
@@ -23,11 +23,15 @@
     "express-validator": "^5.3.1",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.11",
-    "mongoose": "^5.5.6",
+    "mongoose": "^5.5.7",
     "morgan": "^1.9.1",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
     "uuid": "^3.3.2"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/Cesare83/mymovies/issues"
+  },
+  "homepage": "https://github.com/Cesare83/mymovies#readme"
 }
