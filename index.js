@@ -41,7 +41,7 @@ app.use(morgan('common'));
 //mongoose.connect('mongodb://localhost:27017/myMoviesDB', {useNewUrlParser: true});
 
 //route Mongoose to Database myMoviesDB REMOTE
-mongoose.connect((process.env.mongodbUri), {useNewUrlParser: true});
+mongoose.connect(process.env.mongodbUri, {auth: {user:Cesare83, password:cesare%5F23} {useNewUrlParser: true}});
 
 //Error handling middleware func
 app.use((err, req, res, next) => {
