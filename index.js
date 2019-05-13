@@ -19,10 +19,10 @@ require('./passport');
 const app = express();
 
 ///route Mongoose to Database mymovies LOCAL
-mongoose.connect('mongodb://localhost:27017/mymovies', {useNewUrlParser: true});
+//mongoose.connect('mongodb://localhost:27017/mymovies', {useNewUrlParser: true});
 
 //route Mongoose to Database mymovies REMOTE
-//mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true});
+mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true});
 
 //invoke bodyParser for POST requests
 app.use(bodyParser.json());
