@@ -22,7 +22,7 @@ const app = express();
 //mongoose.connect('mongodb://localhost:27017/mymovies', {useNewUrlParser: true});
 
 //route Mongoose to Database mymovies REMOTE
-mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true});
+mongoose.connect('mongodb+srv://cesare83:giota1305@mymovies-sjtn6.mongodb.net/mymovies?retryWrites=true', {useNewUrlParser: true});
 
 //invoke bodyParser for POST requests
 app.use(bodyParser.json());
