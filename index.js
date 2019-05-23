@@ -18,8 +18,8 @@ require('./passport');
 //encapsulate express functionality
 const app = express();
 
-///route Mongoose to Database mymovies LOCAL
-//mongoose.connect('mongodb://localhost:27017/mymovies', {useNewUrlParser: true});
+//Connect to local/remote database via env. file
+//mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true});
 
 //route Mongoose to Database mymovies REMOTE
 mongoose.connect('mongodb+srv://Cesare83:Cicero83@mymovies-frbwv.mongodb.net/mymovies?retryWrites=true', {useNewUrlParser: true});
