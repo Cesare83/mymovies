@@ -21,15 +21,12 @@ const app = express();
 //Connect to local/remote database via env. file
 mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true});
 
-//route Mongoose to Database mymovies REMOTE
-//mongoose.connect('mongodb+srv://Cesare83:Cicero83@mymovies-frbwv.mongodb.net/mymovies?retryWrites=true', {useNewUrlParser: true});
-
 //invoke bodyParser for POST requests
 app.use(bodyParser.json());
-//import auth.is (remember always after body parser)
-var auth = require('./auth.js')(app);
 //invoke cors (!always after bodyParser!):
 app.use(cors());
+//import auth.is (remember always after body parser)
+var auth = require('./auth.js')(app);
 //invoke express-validator
 app.use(validator());
 
