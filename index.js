@@ -65,7 +65,7 @@ app.get('/movies', passport.authenticate('jwt', {session: false}),(req, res) => 
   })
   .catch((error) => {
     console.error(error);
-    res.status(500).send('Error: ' + error);
+    res.status(500).send('Request error: ' + err);
   });
 });
 
@@ -77,31 +77,31 @@ app.get('/movies/:title', passport.authenticate('jwt', {session: false}), (req, 
   })
   .catch((error) => {
     console.error(error);
-    res.status(500).send('Error: ' + error);
+    res.status(500).send('Request error: ' + err);
   });
 });
 
-//Get a JSON OBJ with details of a genre selected by name
-app.get('/genres/:name', passport.authenticate('jwt', {session: false}), (req, res) => {
-  Genres.findOne({Name: req.params.name})
-  .then((genre) => {
-    res.status(201).json(genre)
+//Get movie's genre by title
+app.get('/movies/:title/genre', passport.authenticate('jwt', {session: false}), (req, res) => {
+  Movies.findOne({Title: req.params.title})
+  .then((movie) => {
+    res.status(201).json(movie.Genre)
   })
   .catch((error) => {
     console.error(error);
-    res.status(500).send('Error: ' + error);
+    res.status(500).send('Request error: ' + err);
   });
 });
 
-//Get a JSON OBJ with details of a director selected by name
-app.get('/directors/:name', passport.authenticate('jwt', {session: false}), (req, res) => {
-  Directors.findOne({Name: req.params.name})
-  .then((director) => {
-    res.status(201).json(director)
+//Get a JSON OBJ with details of a director by name
+app.get('/movies/directors/:name', passport.authenticate('jwt', {session: false}), (req, res) => {
+  Movies.findOne({'Director.Name': req.params.name})
+  .then((movie) => {
+    res.status(201).json(movie.Director)
   })
   .catch((error) => {
     console.error(error);
-    res.status(500).send('Error: ' + error);
+    res.status(500).send('Request error: ' + err);
   });
 });
 
