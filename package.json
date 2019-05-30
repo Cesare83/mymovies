@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js",
+    "build": "parcel client/src/index.html"
   },
   "repository": {
     "type": "git",
@@ -25,13 +26,23 @@
     "lodash": "^4.17.11",
     "mongoose": "^5.5.11",
     "morgan": "^1.9.1",
+    "parcel": "^1.12.3",
+    "parcel-bundler": "^1.12.3",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "uuid": "^3.3.2"
   },
   "bugs": {
     "url": "https://github.com/Cesare83/mymovies/issues"
   },
-  "homepage": "https://github.com/Cesare83/mymovies#readme"
+  "homepage": "https://github.com/Cesare83/mymovies#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "sass": "^1.20.1"
+  }
 }

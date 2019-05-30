@@ -1,0 +1,4 @@
+//babel will find both ES2015+ files (env) and React's JSX files (react)
+{
+  "presets": ["env", "react"]
+}
