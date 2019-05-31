@@ -23,8 +23,21 @@ mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true});
 
 //invoke bodyParser for POST requests
 app.use(bodyParser.json());
-//invoke cors (!always after bodyParser!):
+//invoke cors always after bodyParser!
 app.use(cors());
+//Allowed domains
+const domainlist = ['http://localhost:1234'];
+
+const corsOptions = {
+  origin: function(origin, callback) {
+    if (domainlist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+};
+
 //import auth.is (remember always after body parser)
 var auth = require('./auth.js')(app);
 //invoke express-validator
