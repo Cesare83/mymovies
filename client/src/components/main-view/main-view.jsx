@@ -2,21 +2,51 @@
 import React from 'react';
 import axios from 'axios';
 
-class MainView extends React.Component {
-  constructor() {
-    // Call the superclass constructor so React can initialize it
-    super();
+import { MovieCard } from '../movie-card/movie-card';
+import { MovieView } from '../movie-view/movie-view';
 
-    // Initialize the state to an empty object so we can destructure it later
-    //by writing const { /*something*/ } = this.state;
-    this.state = {};
+export class MainView extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      movies: null,
+      selectedMovie: null
+    };
   }
 
-  // This overrides the render() method of the superclass
-  // No need to call super() though, as it does nothing by default
+  componentDidMount() {
+    axios.get('https://cesareatmymovies.herokuapp.com/movies')
+    .then(response => {
+      this.setState({
+        movies: response.data
+      });
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  }
+
+  onMovieClick(movie) {
+    this.setState({
+      selectedMovie: movie
+    });
+  }
+
   render() {
+    const { movies, selectedMovie } = this.state;
+
+    // Before the movies have been loaded
+    if (!movies) return <div className="main-view"/>;
+
     return (
-     <div className="main-view"></div>
+     <div className="main-view">
+      {selectedMovie
+         ? <MovieView movie={selectedMovie}/>
+         : movies.map(movie => (
+           <MovieCard key={movie._id} movie={movie} onClick={movie => this.onMovieClick(movie)}/>
+         ))
+      }
+     </div>
     );
   }
 }
