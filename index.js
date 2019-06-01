@@ -33,8 +33,6 @@ app.use(validator());
 //declare models
 const Movies = Models.Movie;
 const Users = Models.User;
-const Genres = Models.Genre;
-const Directors = Models.Director;
 
 //route requests for static files to public folder
 app.use(express.static('public'));
