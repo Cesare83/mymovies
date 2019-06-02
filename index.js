@@ -24,7 +24,7 @@ mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true});
 //invoke bodyParser for POST requests
 app.use(bodyParser.json());
 //invoke cors always after bodyParser!
-app.use(cors(*));
+app.use(cors());
 //import auth.is (remember always after body parser)
 var auth = require('./auth.js')(app);
 //invoke express-validator
