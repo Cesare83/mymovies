@@ -1,10 +1,12 @@
+//-------------------------------IMPORT MODULES---------------------------------
 import React from 'react';
 
+//-------------------------------COMPONENTS-------------------------------------
 export class MovieCard extends React.Component {
   render() {
     const { movie, onClick } = this.props;
     return (
-      <div onClick={() => onClick(movie)} className="movie-card">{movie.Title}</div>
+      <div className="movie-card" onClick={() => onClick(movie)}>{movie.Title}</div>
     );
   }
 }

@@ -1,5 +1,7 @@
+//-------------------------------IMPORT MODULES---------------------------------
 import React from 'react';
 
+//-------------------------------COMPONENTS-------------------------------------
 export class MovieView extends React.Component {
 
   constructor() {
@@ -32,9 +34,8 @@ export class MovieView extends React.Component {
           <div className="label">Director</div>
           <div className="value">{movie.Director.Name}</div>
         </div>
+        <button onClick={() => onClick()}>Back to Movies</button>
        </div>
-
-
     );
   }
 }

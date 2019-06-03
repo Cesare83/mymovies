@@ -27491,6 +27491,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
+//-------------------------------COMPONENTS-------------------------------------
 var MovieCard =
 /*#__PURE__*/
 function (_React$Component) {
@@ -27509,10 +27510,10 @@ function (_React$Component) {
           movie = _this$props.movie,
           _onClick = _this$props.onClick;
       return _react.default.createElement("div", {
+        className: "movie-card",
         onClick: function onClick() {
           return _onClick(movie);
-        },
-        className: "movie-card"
+        }
       }, movie.Title);
     }
   }]);
@@ -27551,6 +27552,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
+//-------------------------------COMPONENTS-------------------------------------
 var MovieView =
 /*#__PURE__*/
 function (_React$Component) {
@@ -27600,7 +27602,21 @@ function (_React$Component) {
         className: "label"
       }, "Director"), _react.default.createElement("div", {
         className: "value"
-      }, movie.Director.Name)));
+      }, movie.Director.Name)), _react.default.createElement("button", {
+        onClick: function (_onClick) {
+          function onClick() {
+            return _onClick.apply(this, arguments);
+          }
+
+          onClick.toString = function () {
+            return _onClick.toString();
+          };
+
+          return onClick;
+        }(function () {
+          return onClick();
+        })
+      }, "Back to Movies"));
     }
   }]);
 
@@ -27644,6 +27660,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
+//-------------------------------COMPONENTS-------------------------------------
 var MainView =
 /*#__PURE__*/
 function (_React$Component) {
@@ -27683,6 +27700,13 @@ function (_React$Component) {
       });
     }
   }, {
+    key: "mainViewClick",
+    value: function mainViewClick() {
+      this.setState({
+        selectedMovie: null
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this3 = this;
@@ -27697,7 +27721,10 @@ function (_React$Component) {
       return _react.default.createElement("div", {
         className: "main-view"
       }, selectedMovie ? _react.default.createElement(_movieView.MovieView, {
-        movie: selectedMovie
+        movie: selectedMovie,
+        onClick: function onClick() {
+          return _this3.mainViewClick();
+        }
       }) : movies.map(function (movie) {
         return _react.default.createElement(_movieCard.MovieCard, {
           key: movie._id,
@@ -27871,7 +27898,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "43913" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36125" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
