@@ -20,7 +20,7 @@ export function LoginView(props) {
 
   return(
     <Form>
-      <Form.Text controlId="formTitle">
+      <Form.Text>
         Login
       </Form.Text>
       <Form.Group controlId="formEnterUsername">
@@ -33,7 +33,7 @@ export function LoginView(props) {
       </Form.Group>
       <Button variant="primary" type="submit" onClick={handleLogin}>Login</Button>
       <Form.Group controlId="formNewUser">
-        <Form.Text>Or click <Button id='toRegisterView' style={{ padding: 0 }} class="btn btn-link" onClick={() => props.newUser()}>here</Button> to register</Form.Text>
+        <Form.Text>Or click <Button id='toRegisterView' style={{ padding: 0 }} className="btn btn-link" onClick={() => props.newUser()}>here</Button> to register</Form.Text>
       </Form.Group>
     </Form>
   );
