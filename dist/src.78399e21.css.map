@@ -1,1 +1,1 @@
-{"version":3,"sources":["index.scss"],"names":[],"mappings":"AAEA;EACE,OAHO","file":"src.78399e21.css","sourceRoot":"../client/src","sourcesContent":["$color:  steelblue;\n\n.main-view {\n  color: $color;\n}\n"]}
+{"version":3,"sources":["components/login-view/login-view.scss","components/registration-view/registration-view.scss","components/main-view/main-view.scss","index.scss"],"names":[],"mappings":"AAAA,ACAA,ACAA,ACEA;EACE,OAHO","file":"src.78399e21.css","sourceRoot":"../client/src","sourcesContent":["","","","$color:  steelblue;\n\n.main-view {\n  color: $color;\n}\n"]}
