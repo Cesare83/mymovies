@@ -13,8 +13,8 @@ const express = require('express'),
   Models = require('./models.js'),
   validator = require('express-validator'),
   dotenv = require('dotenv').config();
+  require('./passport');
 
-require('./passport');
 //encapsulate express functionality
 const app = express();
 
@@ -54,7 +54,7 @@ app.use((err, req, res, next) => {
 
 //Get a JSON-Obj with whole movies list
 //app.get('/movies', passport.authenticate('jwt', {session: false}),(req, res) => {
-app.get('/movies',(req, res) => {
+app.get('/movies', passport.authenticate('jwt', {session: false}), (req, res) => {
   Movies.find()
   .then((movies) => {
     res.status(201).json(movies)
