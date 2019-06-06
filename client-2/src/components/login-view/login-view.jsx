@@ -16,7 +16,7 @@ export function LoginView(props) {
   const handleLogin = (e) => {
     e.preventDefault();
     //send a request to the server for the authentication
-    axios.post('https://git.heroku.com/cesareatmymovies.git', {
+    axios.post('https://cesareatmymovies.herokuapp.com/', {
       Username: username,
       Password: password
     })
