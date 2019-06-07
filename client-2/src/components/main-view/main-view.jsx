@@ -18,17 +18,11 @@ export class MainView extends React.Component {
     super();
     this.state = {
       movies: null,
-      selectedMovieId: null,
       user: null,
-      register: false
     };
   }
 
   componentDidMount() {
-    window.addEventListener('hashchange', this.handleNewHash, false);
-
-    this.handleNewHash();
-
     let accessToken = localStorage.getItem('token');
     if (accessToken !== null) {
       this.setState({
@@ -36,27 +30,6 @@ export class MainView extends React.Component {
       });
       this.getMovies(accessToken);
     }
-  }
-
-  handleNewHash = () => {
-    const movieId = window.location.hash.replace(/^#\/?|\/$/g, '').split('/');
-
-    this.setState({
-      selectedMovieId: movieId[0]
-    });
-  }
-
-  onMovieClick(movie) {
-    this.setState({
-      selectedMovieId: movie.id
-    });
-    window.location.hash = '#' + movie._id;
-  }
-
-  mainViewClick() {
-    this.setState({
-      selectedMovie: null
-    });
   }
 
   onLoggedIn(authData) {
@@ -85,25 +58,11 @@ export class MainView extends React.Component {
     });
   }
 
-  newUser() {
-    this.setState({
-      register: true
-    });
-  }
-
-  onSignedIn() {
-    this.setState({
-      register: false
-    });
-  }
-
   render() {
-    const {movies, selectedMovieId, user, register} = this.state;
+    const {movies, user} = this.state;
 
-    if (!user) {
-      if (register) return <RegistrationView onSignedIn={() => this.onSignedIn()} onLoggedIn={user => this.onLoggedIn(user)} />;
-      else return <LoginView onLoggedIn={user => this.onLoggedIn(user)} newUser={() => this.newUser()} />;
-    }
+    if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
+    if (!movies) return <div className="main-view"/>;
 
     // Before the movies have been loaded
     if (!movies) return <div className="main-view"/>;
@@ -111,23 +70,13 @@ export class MainView extends React.Component {
     const selectedMovie = selectedMovieId ? movies.find(m => m._id === selectedMovieId) : null;
 
     return (
-      /*<Router>
-          <div className="main-view">
-            <Route exact path="/" render={// welcome //}/>
-            <Route exact path="/movies/:movieId" render={// movie view //}/>
-            <Route exact path="/genres/:name" render={// genre view//}/>
-            <Route exact path="/directors/:name" render={// director view //}/>
-          </div>
-        </Router>*/
+      <Router>
+         <div className="main-view">
+          <Route exact path="/" render={() => movies.map(m => <MovieCard key={m._id} movie={m}/>)}/>
+          <Route path="/movies/:movieId" render={({match}) => <MovieView movie={movies.find(m => m._id === match.params.movieId)}/>}/>
+         </div>
+      </Router>
 
-     <div className="main-view">
-      {selectedMovie
-         ? <MovieView movie={selectedMovie} onClick={() => this.mainViewClick()}/>
-         : movies.map(movie => (
-           <MovieCard key={movie._id} movie={movie} onClick={movie => this.onMovieClick(movie)}/>
-         ))
-      }
-     </div>
     );
   }
 }

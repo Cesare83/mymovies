@@ -17,7 +17,6 @@ export function RegistrationView(props) {
     e.preventDefault();
     console.log(username, password, email, birthday);
     props.onLoggedIn(username);
-    props.onSignedIn();
   };
 
   return(
