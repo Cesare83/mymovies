@@ -1,6 +1,7 @@
 //-------------------------------IMPORT MODULES---------------------------------
 import React, { useState } from 'react';  //use useState hook for less redundancy
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -13,10 +14,22 @@ export function RegistrationView(props) {
   const [email, setEmail] = useState('');
   const [birthday, setBirthday] = useState('');
 
-  const handleSignIn = (e) => {
-    e.preventDefault();
-    console.log(username, password, email, birthday);
-    props.onLoggedIn(username);
+  const handleRegister = (event) => {
+    event.preventDefault();
+      axios.post('https://cesareatmymovies.herokuapp.com/users', {
+      Username: username,
+      Password: password,
+      EMail: email,
+      Birthday: birthday
+    })
+    .then(response => {
+      const data = response.data;
+      console.log(data);
+      window.open('/');
+    })
+    .catch(event => {
+      console.log('error registering the user')
+    });
   };
 
   return(
@@ -40,7 +53,7 @@ export function RegistrationView(props) {
         <Form.Label>Birthday</Form.Label>
         <Form.Control type="date" value={birthday} onChange={e => setBirthday(e.target.value)} placeholder="MM/DD/YY"/>
       </Form.Group>
-      <Button variant="primary" type="submit" onClick={handleSignIn}>Register</Button>
+      <Button variant="primary" type="submit" onClick={handleRegister}>Register</Button>
     </Form>
   );
 }
@@ -51,7 +64,5 @@ RegistrationView.propTypes = {
   password: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   birthday: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
-  onLoggedIn: PropTypes.func.isRequired,
-  onSignedIn: PropTypes.func.isRequired
+  onLoggedIn: PropTypes.func.isRequired
 };
