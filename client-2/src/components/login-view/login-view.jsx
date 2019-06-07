@@ -5,6 +5,7 @@ import axios from 'axios';
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { Link } from 'react-router-dom';
 import './login-view.scss';
 
 
@@ -44,7 +45,7 @@ export function LoginView(props) {
       </Form.Group>
       <Button variant="primary" type="submit" onClick={handleLogin}>Login</Button>
       <Form.Group controlId="formNewUser">
-        <Form.Text>Or click <Button id='toRegisterView' style={{ padding: 0 }} className="btn btn-link" onClick={() => props.newUser()}>here</Button> to register</Form.Text>
+        <Form.Text>Or click <Link to={`/register`}>here</Link> to register</Form.Text>
       </Form.Group>
     </Form>
   );
