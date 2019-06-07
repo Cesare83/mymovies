@@ -19,13 +19,13 @@ export function RegistrationView(props) {
       axios.post('https://cesareatmymovies.herokuapp.com/users', {
       Username: username,
       Password: password,
-      EMail: email,
+      Email: email,
       Birthday: birthday
     })
     .then(response => {
       const data = response.data;
       console.log(data);
-      window.open('/');
+      window.open('/', '_self');
     })
     .catch(event => {
       console.log('error registering the user')
@@ -63,6 +63,5 @@ RegistrationView.propTypes = {
   username: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
-  birthday: PropTypes.string.isRequired,
-  onLoggedIn: PropTypes.func.isRequired
+  birthday: PropTypes.string.isRequired
 };

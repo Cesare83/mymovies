@@ -1,7 +1,6 @@
 //-------------------------------IMPORT MODULES---------------------------------
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
 
 import { Link } from "react-router-dom";
 
@@ -44,7 +43,7 @@ export class MovieView extends React.Component {
             <Button variant="link">Director</Button>
           </Link>
         </div>
-        <button onClick={() => onClick()}>Back to Movies</button>
+        <Link to={'/'}><Button variant='primary'>Back</Button></Link>
        </div>
     );
   }
