@@ -9,6 +9,7 @@ import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
+import { ProfileView } from '../profile-view/profile-view';
 import './main-view.scss';
 
 //-------------------------------COMPONENTS-------------------------------------
@@ -67,6 +68,9 @@ export class MainView extends React.Component {
     return (
       <Router>
         <div className="main-view">
+          <Link to={'/profile'}>
+            <button>MyProfile</button>
+          </Link>
           <Route exact path="/" render={() => {
               if (!user) {
                 return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
@@ -75,6 +79,8 @@ export class MainView extends React.Component {
               }
             }
           }/>
+          <Route exact path="/profile" render={() => <ProfileView />}/>
+
           <Route path="/register" render={() => <RegistrationView />} />
 
           <Route path="/movies/:movieId" render={({match}) => <MovieView movie={movies.find(m => m._id === match.params.movieId)}/>}/>

@@ -101,6 +101,18 @@ app.get('/movies/directors/:name', passport.authenticate('jwt', {session: false}
   });
 });
 
+//Get a JSON Obj with user's details
+app.get('/users/:username', passport.authenticate('jwt', {session: false}), (req, res) => {
+  Movies.findOne({Username: req.params.username})
+  .then((user) => {
+    res.status(201).json(user)
+  })
+  .catch((error) => {
+    console.error(error);
+    res.status(500).send('Request error: ' + err);
+  });
+});
+
 //-----------------------------POST FUNCTIONS-----------------------------------
 
 //create a new user
