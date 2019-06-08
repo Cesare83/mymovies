@@ -41,6 +41,9 @@ export class ProfileView extends React.Component {
   }
 
   render() {
+
+    const {username, email, birthday, favouriteMovies} = this.state;
+
     return (
       <div className="profile-view">
        <div className="username">
