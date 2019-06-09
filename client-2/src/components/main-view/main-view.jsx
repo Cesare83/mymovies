@@ -69,6 +69,9 @@ export class MainView extends React.Component {
     return (
       <Router>
         <div className="main-view">
+          <header>
+            <h1>Bud Spencer Movies</h1>
+          </header>
           <Link to={'/profile'}>
             <button>MyProfile</button>
           </Link>

@@ -19,11 +19,19 @@ export class ProfileView extends React.Component {
     };
   }
 
+  componentDidMount() {
+    //authentication
+    let accessToken = localStorage.getItem('token');
+    if (accessToken !== null) {
+      this.getUser(accessToken);
+    }
+  }
+
   //get user details
   getUser(token) {
 
     let username = localStorage.getItem('user');
-    axios.get('https://cesareatmymovies.herokuapp.com/users/${username}', {
+    axios.get(`https://cesareatmymovies.herokuapp.com/users/${username}`, {
       headers: { Authorization: `Bearer ${token}`}
     })
     .then(response => {
@@ -31,8 +39,8 @@ export class ProfileView extends React.Component {
       this.setState({
         username: response.data.Username,
         email: response.data.Email,
-        birthday: response.data.birthday,
-        favouriteMovies: response.data.FavouriteMovies
+        birthday: response.data.Birthday,
+        favouriteMovies: response.data.Favouritemovies
       });
     })
     .catch(function (error) {
