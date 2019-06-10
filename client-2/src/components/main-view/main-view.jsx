@@ -44,6 +44,13 @@ export class MainView extends React.Component {
     this.getMovies(authData.token);
   }
 
+  //movie-view for new registered user
+  onRegistered(username) {
+    this.setState({
+      user: username
+    });
+  }
+
   getMovies(token) {
     axios.get('https://cesareatmymovies.herokuapp.com/movies', {
       headers: { Authorization: `Bearer ${token}`}
@@ -85,7 +92,7 @@ export class MainView extends React.Component {
           }/>
           <Route exact path="/profile" render={() => <ProfileView />}/>
 
-          <Route path="/register" render={() => <RegistrationView />} />
+          <Route path="/register" render={() => <RegistrationView onRegistered={username => this.onRegistered(username)}/>}/>
 
           <Route path="/movies/:movieId" render={({match}) => <MovieView movie={movies.find(m => m._id === match.params.movieId)}/>}/>
 
