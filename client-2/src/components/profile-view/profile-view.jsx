@@ -48,6 +48,26 @@ export class ProfileView extends React.Component {
     });
   }
 
+  //delete user
+  handleDelete() {
+    let username = localStorage.getItem('user');
+    axios.delete(`https://cesareatmymovies.herokuapp.com/users/${username}`, {
+      headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}
+    })
+    .then(response => {
+      alert('Account succesfully deleted!');
+      //clears storage
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+      //opens login view
+      window.open('/', '_self');
+    })
+    .catch(event => {
+      alert('failed to delete user');
+    });
+  }
+
+
   render() {
 
     const {username, email, birthday, favouriteMovies} = this.state;
@@ -70,6 +90,7 @@ export class ProfileView extends React.Component {
          <div className="label">Favourite Movies</div>
          <div className="value">{favouriteMovies}</div>
        </div>
+       <Button variant="primary" type="button" onClick={() => this.handleDelete()}>Delete Profile</Button>
        <Link to={'/'}><Button variant='primary'>Back</Button></Link>
       </div>
      );
