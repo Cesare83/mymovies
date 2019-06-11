@@ -15,7 +15,11 @@ export class ProfileView extends React.Component {
       password: null,
       email: null,
       birthday: null,
-      favouriteMovies: []
+      favouriteMovies: [],
+      newusername: null,
+      newpassword: null,
+      newemail: null,
+      newbirthday: null
     };
   }
 
@@ -71,10 +75,10 @@ export class ProfileView extends React.Component {
     event.preventDefault();
     let username = localStorage.getItem('user');
     axios.put(`https://cesareatmymovies.herokuapp.com/users/${username}`, {
-      Username: this.state.username,
-      Password: this.state.password,
-      Email: this.state.email,
-      Birthday: this.state.birthday
+      Username: this.state.newusername,
+      Password: this.state.newpassword,
+      Email: this.state.newemail,
+      Birthday: this.state.newbirthday
     }, {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}
     })
@@ -122,19 +126,19 @@ export class ProfileView extends React.Component {
         </Form.Text>
         <Form.Group controlId="formNewUsername">
           <Form.Label>Username</Form.Label>
-          <Form.Control type="text" value={newusername} onChange={event => this.setState({Username: event.target.value})} placeholder="your new username"/>
+          <Form.Control type="text" value={newusername} onChange={event => this.setState({newusername: event.target.value})} placeholder="your new username"/>
         </Form.Group>
         <Form.Group controlId="formNewPassword">
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password" value={newpassword} onChange={event => this.setState({Password: event.target.value})} placeholder="your new password"/>
+          <Form.Control type="password" value={newpassword} onChange={event => this.setState({newpassword: event.target.value})} placeholder="your new password"/>
         </Form.Group>
         <Form.Group controlId="formNewEmail">
           <Form.Label>Email</Form.Label>
-          <Form.Control type="email" value={newemail} onChange={event => this.setState({Email: event.target.value})} placeholder="your new email"/>
+          <Form.Control type="email" value={newemail} onChange={event => this.setState({newemail: event.target.value})} placeholder="your new email"/>
         </Form.Group>
         <Form.Group controlId="formNewBirthday">
           <Form.Label>Birthday</Form.Label>
-          <Form.Control type="date" value={newbirthday} onChange={event => this.setState({Birthday: event.target.value})} placeholder="MM/DD/YY"/>
+          <Form.Control type="date" value={newbirthday} onChange={event => this.setState({newbirthday: event.target.value})} placeholder="MM/DD/YY"/>
         </Form.Group>
         <Button variant="primary" type="submit" onClick={event => this.handleUpdate(event)}>Update</Button>
       </Form>
