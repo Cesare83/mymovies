@@ -73,7 +73,7 @@ export class ProfileView extends React.Component {
     axios.put(`https://cesareatmymovies.herokuapp.com/users/${username}`, {
       Username: this.state.username,
       Password: this.state.password,
-      EMail: this.state.email,
+      Email: this.state.email,
       Birthday: this.state.birthday
     }, {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}
