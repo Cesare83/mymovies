@@ -208,7 +208,7 @@ var hashedPassword= Users.hashPassword(req.body.Password);
   Users.update({ Username : req.params.username }, { $set: {
     Username : req.body.Username,
     Password : hashedPassword,
-    Email : req.body.EMail,
+    Email : req.body.Email,
     Birthday : req.body.Birthday,
   }},
   { new : true },  // This line makes sure that the updated document is returned
