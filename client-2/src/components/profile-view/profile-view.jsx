@@ -43,7 +43,7 @@ export class ProfileView extends React.Component {
         username: response.data.Username,
         email: response.data.Email,
         birthday: response.data.Birthday,
-        favouriteMovies: response.data.Favouritemovies
+        favouriteMovies: response.data.FavouriteMovies
       });
     })
     .catch(function (error) {

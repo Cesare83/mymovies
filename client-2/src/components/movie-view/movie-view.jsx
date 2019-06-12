@@ -20,7 +20,7 @@ export class MovieView extends React.Component {
     event.preventDefault();
     let username = localStorage.getItem('user');
     let movieId = this.props.movie._id;
-    axios.put(`https://cesareatmymovies.herokuapp.com/users/${username}/movies/${movieId}`, {
+    axios.put(`https://cesareatmymovies.herokuapp.com/users/${username}/movies/${movieId}`, {},{
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}
     })
     .then(response => {
