@@ -166,22 +166,6 @@ app.post('/users', (req, res) => {
   });
 });
 
-//Add a favourite movie to the user profile
-app.post('/users/:username/movies/:MovieID', passport.authenticate('jwt', {session: false}), (req, res) => {
-  Users.findOneAndUpdate({ Username : req.params.username }, {
-    $push: { FavouriteMovies : req.params.MovieID
-  }},
-  { new : true },  // This line makes sure that the updated document is returned
-  (error, updatedUser) => {
-    if(error) {
-      console.error(error);
-      res.status(500).send('Error: ' + error);
-    } else {
-      res.json(updatedUser)
-    }
-  })
-});
-
 //---------------------------------PUT FUNCTIONS--------------------------------
 //User´s details update by username
 /*Input is a JSON Object containing:
@@ -210,6 +194,22 @@ var hashedPassword= Users.hashPassword(req.body.Password);
     Password : hashedPassword,
     Email : req.body.Email,
     Birthday : req.body.Birthday,
+  }},
+  { new : true },  // This line makes sure that the updated document is returned
+  (error, updatedUser) => {
+    if(error) {
+      console.error(error);
+      res.status(500).send('Error: ' + error);
+    } else {
+      res.json(updatedUser)
+    }
+  })
+});
+
+//Add a favourite movie to the user profile
+app.put('/users/:username/movies/:MovieID', passport.authenticate('jwt', {session: false}), (req, res) => {
+  Users.findOneAndUpdate({ Username : req.params.username }, {
+    $push: { FavouriteMovies : req.params.MovieID
   }},
   { new : true },  // This line makes sure that the updated document is returned
   (error, updatedUser) => {
