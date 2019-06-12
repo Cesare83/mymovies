@@ -92,7 +92,7 @@ export class ProfileView extends React.Component {
       console.log('error updating the userdata');
       alert('failed to update userdata!');
     });
-};
+  };
 
 
   render() {

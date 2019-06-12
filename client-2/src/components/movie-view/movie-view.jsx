@@ -1,5 +1,6 @@
 //-------------------------------IMPORT MODULES---------------------------------
 import React from 'react';
+import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 
 import { Link } from "react-router-dom";
@@ -12,6 +13,24 @@ export class MovieView extends React.Component {
 
     this.state = {};
   }
+
+  handleLike(event) {
+    event.preventDefault();
+    let username = localStorage.getItem('user');
+    let movieId = this.props.movie._id;
+    axios.post(`https://cesareatmymovies.herokuapp.com/users/${username}/movies/${movieId}`, {
+      headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}
+    })
+    .then(response => {
+      console.log(response);
+      alert('Movie added to the favourites!');
+    })
+    .catch(function (error) {
+      console.log(error);
+      alert('Movie has not been added to the favourites!');
+    });
+  }
+
 
   render() {
     const { movie } = this.props;
@@ -43,6 +62,7 @@ export class MovieView extends React.Component {
             <Button variant="link">Director</Button>
           </Link>
         </div>
+        <Button variant="primary" type="submit" onClick={event => this.handleLike(event)}>Like</Button>
         <Link to={'/'}><Button variant='primary'>Back</Button></Link>
        </div>
     );
