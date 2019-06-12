@@ -1,3 +1,37 @@
 .main-view {
-  
+  display: grid;
+  grid-template-rows: auto auto;
+}
+
+.menue {
+  margin-top: 5vh;
+  background-color: tomato;
+}
+
+.header-innercontainer {
+  display: grid;
+  grid-template-columns: auto auto;
+  max-width: 1000px;
+  padding: 5vh;
+  margin: auto;
+}
+
+h1 {
+  color: white;
+}
+
+.page {
+  max-width: 1000px;
+  padding: 5vh;
+  margin: auto;
+}
+
+.profile-link-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#profile-link {
+  color: white;
 }

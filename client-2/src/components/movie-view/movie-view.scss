@@ -1,0 +1,12 @@
+.movie-view {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.movie-poster {
+  max-height: 40vh;
+}
+
+#backbutton {
+  margin-top: 10vh;
+}

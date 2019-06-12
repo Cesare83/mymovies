@@ -94,6 +94,8 @@ export class ProfileView extends React.Component {
     });
   };
 
+  //delete favourite movie
+
 
   render() {
 
@@ -139,6 +141,7 @@ export class ProfileView extends React.Component {
           <Form.Label>Birthday</Form.Label>
           <Form.Control type="date" value={newbirthday} onChange={event => this.setState({newbirthday: event.target.value})} placeholder="MM/DD/YY"/>
         </Form.Group>
+        <Button variant="primary" type="submit" onClick={event => this.handleDislike(event)}>Remove like</Button>
         <Button variant="primary" type="submit" onClick={event => this.handleUpdate(event)}>Update</Button>
       </Form>
 
