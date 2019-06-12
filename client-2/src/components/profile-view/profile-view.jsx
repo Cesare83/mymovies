@@ -85,7 +85,8 @@ export class ProfileView extends React.Component {
     .then(response => {
       console.log(response);
       alert('Your data has been updated!');
-      localStorage.setItem('user', this.state.username);
+      localStorage.setItem('user', this.state.newusername);
+      this.getUser(localStorage.getItem('token'));
     })
     .catch(event => {
       console.log('error updating the userdata');
@@ -117,8 +118,6 @@ export class ProfileView extends React.Component {
          <div className="value">{favouriteMovies}</div>
        </div>
        <Button variant="primary" type="button" onClick={() => this.handleDelete()}>Delete Profile</Button>
-       <Link to={'/'}><Button variant='primary'>Back</Button></Link>
-
 
        <Form>
         <Form.Text>
@@ -142,6 +141,8 @@ export class ProfileView extends React.Component {
         </Form.Group>
         <Button variant="primary" type="submit" onClick={event => this.handleUpdate(event)}>Update</Button>
       </Form>
+
+      <Link to={'/'}><Button variant='primary'>Back</Button></Link>
     </div>
     );
   }
