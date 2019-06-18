@@ -52,6 +52,18 @@ export class MainView extends React.Component {
     });
   }
 
+  logOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    localStorage.removeItem('movies');
+
+    this.setState({
+      user: null
+    });
+    //display login after log out
+    window.open('/','_self');
+  }
+
   getMovies(token) {
     axios.get('https://cesareatmymovies.herokuapp.com/movies', {
       headers: { Authorization: `Bearer ${token}`}
@@ -83,8 +95,9 @@ export class MainView extends React.Component {
                 <h1>Bud Spencer Movies</h1>
                 <div className="profile-link-container">
                   <Link id="profile-button" to={'/profile'}>
-                    <Button id="profile-link" variant="link">MyProfile</Button>
+                    <Button className="menue-buttons" variant="link">MyProfile</Button>
                   </Link>
+                  <Button className="menue-buttons" variant="link" onClick={() => this.logOut()}>Log Out</Button>
                 </div>
               </div>
             </header>
