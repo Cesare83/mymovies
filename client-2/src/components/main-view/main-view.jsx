@@ -93,7 +93,7 @@ export class MainView extends React.Component {
             <header>
               <div className="header-innercontainer">
                 <h1>Bud Spencer Movies</h1>
-                <div className="profile-link-container">
+                <div className="menue-buttons-container">
                   <Link id="profile-button" to={'/profile'}>
                     <Button className="menue-buttons" variant="link">MyProfile</Button>
                   </Link>

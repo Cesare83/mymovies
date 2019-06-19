@@ -2,6 +2,7 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 
 import { Link } from "react-router-dom";
+import './director-view.scss';
 
 //-------------------------------COMPONENTS-------------------------------------
 export class DirectorView extends React.Component {
@@ -19,22 +20,22 @@ export class DirectorView extends React.Component {
     return (
       <div className="director-view">
        <div className="director-name">
-         <div className="label">Name</div>
+         <h2 className="label">Name</h2>
          <div className="value">{director.Name}</div>
        </div>
        <div className="director-bio">
-         <div className="label">Biography</div>
-         <div className="value">{director.Bio}</div>
+         <h2 className="label">Biography</h2>
+         <div className="description-text">{director.Bio}</div>
        </div>
        <div className="director-birth">
-         <div className="label">Birth</div>
+         <h2 className="label">Birth</h2>
          <div className="value">{director.Birth}</div>
        </div>
        <div className="director-death">
-         <div className="label">Death</div>
+         <h2 className="label">Death</h2>
          <div className="value">{director.Death}</div>
        </div>
-       <Link to={'/'}><Button variant='primary'>Back</Button></Link>
+       <Link to={'/'}><Button className="standard-button" variant="link">Back</Button></Link>
       </div>
      );
    }

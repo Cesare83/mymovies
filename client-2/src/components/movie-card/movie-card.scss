@@ -1,8 +1,10 @@
 .card {
   margin: 2%;
-  background-color: #e6ffff;
+  border-left: 2.5vw solid #fc4a1a;
+  border-radius: 0px;
 }
 
-#movie-view-link {
-  color: black;
+.details-button-container {
+  display: flex;
+  justify-content: flex-end;
 }

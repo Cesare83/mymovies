@@ -4,9 +4,21 @@
 }
 
 .movie-poster {
-  max-height: 40vh;
+  max-height: 50vh;
+  margin-bottom: 5%;
 }
 
-#backbutton {
-  margin-top: 10vh;
+.movie-director {
+  margin-bottom: 10vh;
+}
+
+.right-container {
+  display: grid;
+  grid-template-rows: auto auto;
+  margin: auto;
+}
+
+.standard-button {
+  color: #fff;
+  background-color: #fc4a1a;
 }

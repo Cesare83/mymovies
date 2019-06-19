@@ -1,3 +1,36 @@
+//--------------------------COMMON FEATURES-------------------------------------
+h1 {
+  color: #fff;
+  font-size: 5vh;
+}
+
+h2 {
+  font-size: 2.5vh;
+}
+
+.description-text {
+  margin: 3vh 0 3vh 0;
+  text-align: justify;
+}
+
+.label {
+  margin: 5% 0 5% 5%;
+}
+
+.standard-button {
+  color: #fc4a1a;
+  background-color: #fff;
+  border: 2px solid #fc4a1a;
+}
+
+.standard-button:hover {
+  color: #fff;
+  background-color: #fc4a1a;
+  text-decoration: none;
+}
+
+//-------------------------MAIN PAGE FEATURES-----------------------------------
+
 .main-view {
   display: grid;
   grid-template-rows: auto auto;
@@ -5,7 +38,7 @@
 
 .menue {
   margin-top: 5vh;
-  background-color: tomato;
+  background-color: #fc4a1a;
 }
 
 .header-innercontainer {
@@ -16,27 +49,23 @@
   margin: auto;
 }
 
-h1 {
-  color: white;
-}
-
 .page {
   max-width: 1000px;
   padding: 5vh;
   margin: auto;
 }
 
-.profile-link-container {
+.menue-buttons-container {
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
 
 .menue-buttons:hover {
-  color: white;
-  
+  color: #fff;
 }
 
 .menue-buttons {
-  color: white;
+  color: #fff;
+  font-size: 2vh;
 }
