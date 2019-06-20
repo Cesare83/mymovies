@@ -5,8 +5,9 @@ import Form from 'react-bootstrap/Form';
 import ListGroup from 'react-bootstrap/ListGroup';
 
 import { Redirect } from 'react-router-dom';
-import { Link } from "react-router-dom";
-
+import { Link } from 'react-router-dom';
+import { Tooltip } from 'react-bootstrap';
+import './profile-view.scss';
 //-------------------------------COMPONENTS-------------------------------------
 export class ProfileView extends React.Component {
   constructor() {
@@ -21,7 +22,8 @@ export class ProfileView extends React.Component {
       newusername: null,
       newpassword: null,
       newemail: null,
-      newbirthday: null
+      newbirthday: null,
+      showForm: false
     };
   }
 
@@ -89,6 +91,7 @@ export class ProfileView extends React.Component {
       alert('Your data has been updated!');
       localStorage.setItem('user', this.state.newusername);
       this.getUser(localStorage.getItem('token'));
+      this.setState({showForm: false})
     })
     .catch(event => {
       console.log('error updating the userdata');
@@ -96,56 +99,75 @@ export class ProfileView extends React.Component {
     });
   };
 
-  //delete favourite movie
+  showForm() {
+    this.setState({
+      showForm: true
+    })
+  }
 
+  hideForm() {
+    this.setState({
+      showForm: false
+    })
+  }
 
   render() {
 
-    const {username, password, email, birthday, newusername, newpassword, newemail, newbirthday, favouriteMovies} = this.state;
+    const {username, password, email, birthday, newusername, newpassword, newemail, newbirthday, favouriteMovies, showForm} = this.state;
 
     return (
       <div className="profile-view">
-       <div className="username">
-         <div className="label">Username</div>
-         <div className="value">{username}</div>
-       </div>
-       <div className="email">
-         <div className="label">Email</div>
-         <div className="value">{email}</div>
-       </div>
-       <div className="birthday">
-         <div className="label">Birthday</div>
-         <div className="value">{birthday}</div>
-       </div>
-       <div className="favourite-movies">
-         <div className="label">Favourite Movies</div>
-         
-       </div>
-       <Button className="standard-button" variant="link" onClick={() => this.handleDelete()}>Delete Profile</Button>
-
-       <Form>
-        <Form.Text>
-          Update Profile
-        </Form.Text>
-        <Form.Group controlId="formNewUsername">
-          <Form.Label>Username</Form.Label>
-          <Form.Control type="text" value={newusername} onChange={event => this.setState({newusername: event.target.value})} placeholder="your new username"/>
-        </Form.Group>
-        <Form.Group controlId="formNewPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" value={newpassword} onChange={event => this.setState({newpassword: event.target.value})} placeholder="your new password"/>
-        </Form.Group>
-        <Form.Group controlId="formNewEmail">
-          <Form.Label>Email</Form.Label>
-          <Form.Control type="email" value={newemail} onChange={event => this.setState({newemail: event.target.value})} placeholder="your new email"/>
-        </Form.Group>
-        <Form.Group controlId="formNewBirthday">
-          <Form.Label>Birthday</Form.Label>
-          <Form.Control type="date" value={newbirthday} onChange={event => this.setState({newbirthday: event.target.value})} placeholder="MM/DD/YY"/>
-        </Form.Group>
-        <Button className="standard-button" variant="link" onClick={event => this.handleDislike(event)}>Remove like</Button>
-        <Button className="standard-button" variant="link" onClick={event => this.handleUpdate(event)}>Update</Button>
-      </Form>
+        {
+        !this.state.showForm?
+        <div className="profile-view-container">
+          <div className="username">
+            <h2 className="label">Username</h2>
+            <div className="value">{username}</div>
+          </div>
+          <div className="email">
+            <h2 className="label">Email</h2>
+            <div className="value">{email}</div>
+          </div>
+          <div className="birthday">
+            <h2 className="label">Birthday</h2>
+            <div className="value">{birthday}</div>
+          </div>
+          <div className="favourite-movies">
+            <h2 className="label">Favourite Movies</h2>
+            {favouriteMovies.length > 0 &&
+              <div className="value">{favouriteMovies.map(favMovie => ( <p key={favMovie}>{JSON.parse(localStorage.getItem('local-storage-movies')).find(movie => movie._id === favMovie).Title}</p>))}</div>
+            }
+          </div>
+          <Button className="standard-button buttons-next" variant="link" onClick={() => this.showForm()}>Update Profile</Button>
+          <Button className="standard-button buttons-next" variant="link" onClick={() => this.handleDelete()}>Delete Profile</Button>
+        </div>
+        :null
+        }
+        {
+          this.state.showForm?
+          <div className="update-profile-container">
+            <Form>
+              <Form.Group controlId="formNewUsername">
+                <Form.Label>Username</Form.Label>
+                <Form.Control type="text" value={newusername} onChange={event => this.setState({newusername: event.target.value})} placeholder="enter your new username"/>
+              </Form.Group>
+              <Form.Group controlId="formNewPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" value={newpassword} onChange={event => this.setState({newpassword: event.target.value})} placeholder="enter your new password"/>
+              </Form.Group>
+              <Form.Group controlId="formNewEmail">
+                <Form.Label>Email</Form.Label>
+                <Form.Control type="email" value={newemail} onChange={event => this.setState({newemail: event.target.value})} placeholder="enter your new email"/>
+              </Form.Group>
+              <Form.Group controlId="formNewBirthday">
+                <Form.Label>Birthday</Form.Label>
+                <Form.Control type="date" value={newbirthday} onChange={event => this.setState({newbirthday: event.target.value})} placeholder="MM/DD/YY"/>
+              </Form.Group>
+              <Button className="standard-button" variant="link" onClick={event => this.handleUpdate(event)}>Update</Button>
+            </Form>
+          </div>
+          :null
+        }
 
       <Link to={'/'}><Button className="standard-button" variant="link">Back</Button></Link>
     </div>

@@ -69,10 +69,9 @@ export class MainView extends React.Component {
       headers: { Authorization: `Bearer ${token}`}
     })
     .then(response => {
-      // Assign the result to the state
-      this.setState({
-        movies: response.data
-      });
+      // Assign the result to the state and to the
+      this.setState({movies: response.data});
+      localStorage.setItem('local-storage-movies', JSON.stringify(response.data));
     })
     .catch(function (error) {
       console.log(error);
