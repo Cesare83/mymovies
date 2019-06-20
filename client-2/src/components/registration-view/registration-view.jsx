@@ -3,6 +3,7 @@ import React, { useState } from 'react';  //use useState hook for less redundanc
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
+import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './registration-view.scss';
@@ -34,17 +35,15 @@ export function RegistrationView(props) {
   };
 
   return(
-    <Form>
-      <Form.Text>
-        Register
-      </Form.Text>
+    <div className="registration-view">
+    <Form id="register-form">
       <Form.Group controlId="formNewUsername">
         <Form.Label>Username</Form.Label>
-        <Form.Control type="text" value={username} onChange={e => setUsername(e.target.value)} placeholder="your username"/>
+        <Form.Control type="text" value={username} onChange={e => setUsername(e.target.value)} placeholder="enter your username"/>
       </Form.Group>
       <Form.Group controlId="formNewPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="your password"/>
+        <Form.Control type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="enter your password"/>
       </Form.Group>
       <Form.Group controlId="formNewEmail">
         <Form.Label>Email</Form.Label>
@@ -54,8 +53,11 @@ export function RegistrationView(props) {
         <Form.Label>Birthday</Form.Label>
         <Form.Control type="date" value={birthday} onChange={e => setBirthday(e.target.value)} placeholder="MM/DD/YY"/>
       </Form.Group>
-      <Button variant="primary" type="submit" onClick={handleRegister}>Register</Button>
+      <Button className="standard-button" variant="link" onClick={handleRegister}>Register</Button>
     </Form>
+
+    <Link to={'/'}><Button className="standard-button" variant="link">Back</Button></Link>
+    </div>
   );
 }
 
