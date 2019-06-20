@@ -2,7 +2,9 @@ import React from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import ListGroup from 'react-bootstrap/ListGroup';
 
+import { Redirect } from 'react-router-dom';
 import { Link } from "react-router-dom";
 
 //-------------------------------COMPONENTS-------------------------------------
@@ -117,9 +119,9 @@ export class ProfileView extends React.Component {
        </div>
        <div className="favourite-movies">
          <div className="label">Favourite Movies</div>
-          
+         
        </div>
-       <Button variant="primary" type="button" onClick={() => this.handleDelete()}>Delete Profile</Button>
+       <Button className="standard-button" variant="link" onClick={() => this.handleDelete()}>Delete Profile</Button>
 
        <Form>
         <Form.Text>
@@ -141,11 +143,11 @@ export class ProfileView extends React.Component {
           <Form.Label>Birthday</Form.Label>
           <Form.Control type="date" value={newbirthday} onChange={event => this.setState({newbirthday: event.target.value})} placeholder="MM/DD/YY"/>
         </Form.Group>
-        <Button variant="primary" type="submit" onClick={event => this.handleDislike(event)}>Remove like</Button>
-        <Button variant="primary" type="submit" onClick={event => this.handleUpdate(event)}>Update</Button>
+        <Button className="standard-button" variant="link" onClick={event => this.handleDislike(event)}>Remove like</Button>
+        <Button className="standard-button" variant="link" onClick={event => this.handleUpdate(event)}>Update</Button>
       </Form>
 
-      <Link to={'/'}><Button variant='primary'>Back</Button></Link>
+      <Link to={'/'}><Button className="standard-button" variant="link">Back</Button></Link>
     </div>
     );
   }
