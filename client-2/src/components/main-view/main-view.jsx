@@ -1,10 +1,12 @@
 //-------------------------------IMPORT MODULES---------------------------------
 import React from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route} from "react-router-dom";
 import { Link } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 
+import { setMovies } from '../../actions/actions';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { LoginView } from '../login-view/login-view';
@@ -19,8 +21,7 @@ export class MainView extends React.Component {
   constructor() {
     super();
     this.state = {
-      movies: [],
-      user: null,
+      user: null
     };
   }
 
@@ -69,8 +70,7 @@ export class MainView extends React.Component {
       headers: { Authorization: `Bearer ${token}`}
     })
     .then(response => {
-      // Assign the result to the state and to the
-      this.setState({movies: response.data});
+      this.props.setMovies(response.data);
       localStorage.setItem('local-storage-movies', JSON.stringify(response.data));
     })
     .catch(function (error) {
@@ -133,3 +133,6 @@ export class MainView extends React.Component {
     );
   }
 }
+
+//----------------------------------STORE CONNECTION----------------------------
+export default connect(null, { setMovies } )(MainView);

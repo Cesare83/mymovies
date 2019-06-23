@@ -1,6 +1,7 @@
 //-------------------------------IMPORT MODULES---------------------------------
 import React from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
 import Button from 'react-bootstrap/Button';
 
 import { Link } from "react-router-dom";
@@ -8,19 +9,17 @@ import { Link } from "react-router-dom";
 import './movie-view.scss';
 
 //-------------------------------COMPONENTS-------------------------------------
-export class MovieView extends React.Component {
+function MovieView(props) {
+  const { movies, movieId } = props;
 
-  constructor() {
-    super();
+  if (!movies || movies.length) return null;
 
-    this.state = {};
-  }
+  const movie = movies.find(movie => movie._id == movieId);
 
   handleLike(event) {
     event.preventDefault();
     let username = localStorage.getItem('user');
-    let movieId = this.props.movie._id;
-    axios.put(`https://cesareatmymovies.herokuapp.com/users/${username}/movies/${movieId}`, {},{
+    axios.put(`https://cesareatmymovies.herokuapp.com/users/${username}/movies/${movie._id}`, {},{
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}
     })
     .then(response => {
@@ -33,39 +32,35 @@ export class MovieView extends React.Component {
     });
   }
 
-
-
-  render() {
-    const { movie } = this.props;
-
-    if (!movie) return null;
-
-    return (
-       <div className="movie-view">
-          <div className="left-container">
-            <div className="movie-title">
-              <h2 className="label">Title</h2>
-              <div className="value">{movie.Title}</div>
-              </div>
-            <div className="movie-description">
-              <h2 className="label">Description</h2>
-              <div className="description-text">{movie.Description}</div>
-              </div>
-            <div className="movie-genre">
-              <h2 className="label">Genre</h2>
-              <Link to={`/genres/${movie.Genre.Name}`}>{movie.Genre.Name}</Link>
-            </div>
-            <div className="movie-director">
-              <h2 className="label">Director</h2>
-              <Link to={`/directors/${movie.Director.Name}`}>{movie.Director.Name}</Link>
-            </div>
-            <Link to={'/'}><Button className="standard-button" variant="link">Back</Button></Link>
-          </div>
-          <div className="right-container">
-            <img className="movie-poster" src={movie.ImagePath} />
-            <Button className="standard-button" variant="link" onClick={event => this.handleLike(event)}>Like</Button>
-          </div>
+  return (
+    <div className="movie-view">
+      <div className="left-container">
+        <div className="movie-title">
+          <h2 className="label">Title</h2>
+          <div className="value">{movie.Title}</div>
+        </div>
+        <div className="movie-description">
+          <h2 className="label">Description</h2>
+          <div className="description-text">{movie.Description}</div>
+        </div>
+        <div className="movie-genre">
+          <h2 className="label">Genre</h2>
+          <Link to={`/genres/${movie.Genre.Name}`}>{movie.Genre.Name}</Link>
+        </div>
+        <div className="movie-director">
+          <h2 className="label">Director</h2>
+          <Link to={`/directors/${movie.Director.Name}`}>{movie.Director.Name}</Link>
+        </div>
+          <Link to={'/'}><Button className="standard-button" variant="link">Back</Button></Link>
       </div>
-    );
-  }
+      <div className="right-container">
+        <img className="movie-poster" src={movie.ImagePath} />
+        <Button className="standard-button" variant="link" onClick={event => this.handleLike(event)}>Like</Button>
+      </div>
+    </div>
+  );
 }
+
+
+//----------------------------------STORE CONNECTION----------------------------
+export default connect(({movies}) => ({movies}))(MovieView);
