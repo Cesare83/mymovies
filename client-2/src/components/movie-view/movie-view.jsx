@@ -16,7 +16,7 @@ function MovieView(props) {
 
   const movie = movies.find(movie => movie._id == movieId);
 
-  handleLike(event) {
+  function handleLike(event) {
     event.preventDefault();
     let username = localStorage.getItem('user');
     axios.put(`https://cesareatmymovies.herokuapp.com/users/${username}/movies/${movie._id}`, {},{
@@ -30,7 +30,7 @@ function MovieView(props) {
       console.log(error);
       alert('Movie has not been added to the favourites!');
     });
-  }
+  };
 
   return (
     <div className="movie-view">

@@ -1,3 +1,4 @@
+//-------------------------------IMPORT MODULES---------------------------------
 import React from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
@@ -6,8 +7,8 @@ import ListGroup from 'react-bootstrap/ListGroup';
 
 import { Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { Tooltip } from 'react-bootstrap';
 import './profile-view.scss';
+
 //-------------------------------COMPONENTS-------------------------------------
 export class ProfileView extends React.Component {
   constructor() {

@@ -7,8 +7,9 @@ import { Link } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 
 import { setMovies } from '../../actions/actions';
+import MoviesList from '../movies-list/movies-list';
+import MovieView from '../movie-view/movie-view';
 import { MovieCard } from '../movie-card/movie-card';
-import { MovieView } from '../movie-view/movie-view';
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import { DirectorView } from '../director-view/director-view';
@@ -25,6 +26,8 @@ export class MainView extends React.Component {
     };
   }
 
+  //tore user in localStorage after logging in and receiving back the token
+  //to prevent authentication-loss after refreshing the page
   componentDidMount() {
     let accessToken = localStorage.getItem('token');
     if (accessToken !== null) {
@@ -35,8 +38,8 @@ export class MainView extends React.Component {
     }
   }
 
+  //login
   onLoggedIn(authData) {
-    console.log(authData);
     this.setState({
       user: authData.user.Username
     });
@@ -53,6 +56,7 @@ export class MainView extends React.Component {
     });
   }
 
+  //Logout button resets the localStorage
   logOut() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
@@ -65,13 +69,13 @@ export class MainView extends React.Component {
     window.open('/','_self');
   }
 
+  //get a list of all database movies
   getMovies(token) {
     axios.get('https://cesareatmymovies.herokuapp.com/movies', {
       headers: { Authorization: `Bearer ${token}`}
     })
     .then(response => {
       this.props.setMovies(response.data);
-      localStorage.setItem('local-storage-movies', JSON.stringify(response.data));
     })
     .catch(function (error) {
       console.log(error);
@@ -79,11 +83,7 @@ export class MainView extends React.Component {
   }
 
   render() {
-    const {movies, user} = this.state;
-
-
-    // Before the movies have been loaded
-    if (!movies) return <div className="main-view"/>;
+    const { user, movies } = this.state;
 
     return (
       <Router>
@@ -105,13 +105,10 @@ export class MainView extends React.Component {
           <div className="page">
 
             <Route exact path="/" render={() => {
-              if (!user) {
-                return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
-              } else {
-                return movies.map(m => <MovieCard key={m._id} movie={m}/>)
-                }
-              }
-            }/>
+              if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
+              return <MoviesList/>;
+            }}/>
+
             <Route exact path="/profile" render={() => <ProfileView />}/>
 
             <Route path="/register" render={() => <RegistrationView onRegistered={username => this.onRegistered(username)}/>}/>
