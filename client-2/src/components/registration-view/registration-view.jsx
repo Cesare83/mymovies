@@ -17,7 +17,7 @@ export function RegistrationView(props) {
 
   const handleRegister = (event) => {
     event.preventDefault();
-      axios.post('https://cesareatmymovies.herokuapp.com/users', {
+      axios.post('https://budspencermovies.herokuapp.com/users', {
       Username: username,
       Password: password,
       Email: email,

@@ -19,7 +19,7 @@ function MovieView(props) {
   function handleLike(event) {
     event.preventDefault();
     let username = localStorage.getItem('user');
-    axios.put(`https://cesareatmymovies.herokuapp.com/users/${username}/movies/${movie._id}`, {},{
+    axios.put(`https://budspencermovies.herokuapp.com/users/${username}/movies/${movie._id}`, {},{
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}
     })
     .then(response => {

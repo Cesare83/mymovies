@@ -39,7 +39,7 @@ export class ProfileView extends React.Component {
   //get user details
   getUser(token) {
     let username = localStorage.getItem('user');
-    axios.get(`https://cesareatmymovies.herokuapp.com/users/${username}`, {
+    axios.get(`https://budspencermovies.herokuapp.com/users/${username}`, {
       headers: { Authorization: `Bearer ${token}`}
     })
     .then(response => {
@@ -59,7 +59,7 @@ export class ProfileView extends React.Component {
   //delete user
   handleDelete() {
     let username = localStorage.getItem('user');
-    axios.delete(`https://cesareatmymovies.herokuapp.com/users/${username}`, {
+    axios.delete(`https://budspencermovies.herokuapp.com/users/${username}`, {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}
     })
     .then(response => {
@@ -79,7 +79,7 @@ export class ProfileView extends React.Component {
   handleUpdate(event) {
     event.preventDefault();
     let username = localStorage.getItem('user');
-    axios.put(`https://cesareatmymovies.herokuapp.com/users/${username}`, {
+    axios.put(`https://budspencermovies.herokuapp.com/users/${username}`, {
       Username: this.state.newusername,
       Password: this.state.newpassword,
       Email: this.state.newemail,
@@ -103,7 +103,7 @@ export class ProfileView extends React.Component {
   handleDeleteMovie(event, favouriteMovie) {
     event.preventDefault();
     console.log(favouriteMovie);
-    axios.delete(`https://cesareatmymovies.herokuapp.com/users/${localStorage.getItem('user')}/movies/${favouriteMovie}`, {
+    axios.delete(`https://budspencermovies.herokuapp.com/users/${localStorage.getItem('user')}/movies/${favouriteMovie}`, {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}
     })
     .then(response => {

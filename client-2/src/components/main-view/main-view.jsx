@@ -71,7 +71,7 @@ export class MainView extends React.Component {
 
   //get a list of all database movies
   getMovies(token) {
-    axios.get('https://cesareatmymovies.herokuapp.com/movies', {
+    axios.get('https://budspencermovies.herokuapp.com/movies', {
       headers: { Authorization: `Bearer ${token}`}
     })
     .then(response => {
