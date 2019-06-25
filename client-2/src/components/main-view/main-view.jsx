@@ -9,7 +9,6 @@ import Button from 'react-bootstrap/Button';
 import { setMovies } from '../../actions/actions';
 import MoviesList from '../movies-list/movies-list';
 import MovieView from '../movie-view/movie-view';
-import { MovieCard } from '../movie-card/movie-card';
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import { DirectorView } from '../director-view/director-view';
@@ -113,7 +112,7 @@ export class MainView extends React.Component {
 
             <Route path="/register" render={() => <RegistrationView onRegistered={username => this.onRegistered(username)}/>}/>
 
-            <Route path="/movies/:movieId" render={({match}) => <MovieView movie={movies.find(m => m._id === match.params.movieId)}/>}/>
+            <Route path="/movies/:id" render={({match}) => <MovieView movieId={match.params.id}/>}/>
 
             <Route path="/directors/:name" render={({ match }) => {
             if (!movies || !movies.length) return <div className="main-view"/>;

@@ -54,7 +54,7 @@ function MovieView(props) {
           <Link to={'/'}><Button className="standard-button" variant="link">Back</Button></Link>
       </div>
       <div className="right-container">
-        <img className="movie-poster" src={movie.ImagePath} />
+        <img className="movie-poster" src={movie.ImagePath} alt="movie poster" />
         <Button className="standard-button" variant="link" onClick={event => this.handleLike(event)}>Like</Button>
       </div>
     </div>

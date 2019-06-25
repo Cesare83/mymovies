@@ -18,7 +18,7 @@ const mapStateToProps = state => {
   });
 
   if (visibilityFilter !== '') {
-    moviesToShow = moviesToShow.filter(m => m.title.includes(visibilityFilter));
+    moviesToShow = moviesToShow.filter(movie => movie.title.includes(visibilityFilter));
   }
 
   return { movies: moviesToShow };
@@ -31,7 +31,7 @@ function MoviesList(props) {
 
   return <div className="movies-list">
     <VisibilityFilterInput/>
-    {movies.map(m => <MovieCard key={m._id} movie={m}/>)}
+    {movies.map(movie => <MovieCard key={movie._id} movie={movie}/>)}
   </div>;
 }
 
