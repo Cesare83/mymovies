@@ -12,9 +12,9 @@ import './movie-view.scss';
 function MovieView(props) {
   const { movies, movieId } = props;
 
-  if (!movies || movies.length) return null;
+  if (!movies || !movies.length) return null;
 
-  const movie = movies.find(movie => movie._id == movieId);
+  const movie = movies.find(m => m._id == movieId);
 
   function handleLike(event) {
     event.preventDefault();
@@ -58,7 +58,7 @@ function MovieView(props) {
         <Button className="standard-button" variant="link" onClick={event => this.handleLike(event)}>Like</Button>
       </div>
     </div>
-  );
+  )
 }
 
 

@@ -11,8 +11,8 @@ import MoviesList from '../movies-list/movies-list';
 import MovieView from '../movie-view/movie-view';
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
-import { DirectorView } from '../director-view/director-view';
-import { GenreView } from '../genre-view/genre-view';
+import DirectorView from '../director-view/director-view';
+import GenreView from '../genre-view/genre-view';
 import { ProfileView } from '../profile-view/profile-view';
 import './main-view.scss';
 
@@ -112,17 +112,12 @@ export class MainView extends React.Component {
 
             <Route path="/register" render={() => <RegistrationView onRegistered={username => this.onRegistered(username)}/>}/>
 
-            <Route path="/movies/:id" render={({match}) => <MovieView movieId={match.params.id}/>}/>
+            <Route exact path="/movies/:id" render={({ match }) => <MovieView movieId={match.params.id}/>}/>
 
-            <Route path="/directors/:name" render={({ match }) => {
-            if (!movies || !movies.length) return <div className="main-view"/>;
-            return <DirectorView director={movies.find(movie => movie.Director.Name === match.params.name).Director}/>}
-            }/>
+            <Route exact path="/directors/:name" render={({ match }) => <DirectorView directorName={match.params.name}/>}/>
 
-            <Route exact path="/genres/:name" render={ ({match}) => {
-              if (!movies || !movies.length) return <div className="main-view"/>;
-              return <GenreView genre={movies.find(movie => movie.Genre.Name === match.params.name).Genre} />}
-            }/>
+            <Route exact path="/genres/:name" render={({ match }) => <GenreView genreName={match.params.name}/>}/>
+
           </div>
         </div>
       </Router>

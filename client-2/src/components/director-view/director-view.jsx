@@ -1,21 +1,18 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
+import { connect } from 'react-redux';
 
 import { Link } from "react-router-dom";
 import './director-view.scss';
 
 //-------------------------------COMPONENTS-------------------------------------
-export class DirectorView extends React.Component {
-  constructor() {
-    super();
+function DirectorView(props) {
 
-    this.state = {};
-  }
+  const { movies, directorName } = props;
 
-  render() {
-    const { director } = this.props;
+  if (!movies || !movies.length) return null;
 
-    if (!director) return null;
+  const director = movies.find(movie => movie.Director.Name == directorName).Director;
 
     return (
       <div className="director-view">
@@ -38,5 +35,7 @@ export class DirectorView extends React.Component {
        <Link to={'/'}><Button className="standard-button" variant="link">Back</Button></Link>
       </div>
      );
-   }
 }
+
+//----------------------------------STORE CONNECTION----------------------------
+export default connect(({movies}) => ({movies}))(DirectorView);

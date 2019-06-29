@@ -1,6 +1,9 @@
+//-------------------------------IMPORT MODULES---------------------------------
 import { combineReducers } from 'redux';
 
-import { SET_FILTER, SET_SORT_COLUMN, SET_MOVIES } from '../actions/actions';
+import { SET_FILTER, SET_SORT_COLUMN, SET_MOVIES } from '../actions/actions.js';
+
+//---------------------------------FUNCTIONS------------------------------------
 
 function visibilityFilter(state = '', action) {
   switch (action.type) {
