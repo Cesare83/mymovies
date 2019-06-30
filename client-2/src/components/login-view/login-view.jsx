@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import './login-view.scss';
 
 
-//-------------------------------COMPONENTS-------------------------------------
+//-------------------------------FUNCTIONS--------------------------------------
 export function LoginView(props) {
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');

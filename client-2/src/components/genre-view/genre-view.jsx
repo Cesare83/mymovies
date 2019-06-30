@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 import { Link } from "react-router-dom";
 import './genre-view.scss';
 
-//-------------------------------COMPONENTS-------------------------------------
+//-------------------------------FUNCTIONS--------------------------------------
 function GenreView(props) {
 
   const { movies, genreName } = props;

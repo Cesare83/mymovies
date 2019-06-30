@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './registration-view.scss';
 
-//-------------------------------COMPONENTS-------------------------------------
+//-------------------------------FUNCTIONS--------------------------------------
 export function RegistrationView(props) {
   const [username, setUsername ] = useState('');
   const [password, setPassword] = useState('');

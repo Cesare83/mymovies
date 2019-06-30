@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import VisibilityFilterInput from '../visibility-filter-input/visibility-filter-input';
 import { MovieCard } from '../movie-card/movie-card';
 
-//-------------------------------COMPONENTS-------------------------------------
+//-------------------------------FUNCTIONS--------------------------------------
 
 //copy the movies array whith concat() and sort it
 const mapStateToProps = state => {

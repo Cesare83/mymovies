@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 import './movie-view.scss';
 
-//-------------------------------COMPONENTS-------------------------------------
+//-------------------------------FUNCTIONS--------------------------------------
 function MovieView(props) {
   const { movies, movieId } = props;
 

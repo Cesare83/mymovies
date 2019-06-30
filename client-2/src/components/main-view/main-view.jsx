@@ -16,7 +16,7 @@ import GenreView from '../genre-view/genre-view';
 import { ProfileView } from '../profile-view/profile-view';
 import './main-view.scss';
 
-//-------------------------------COMPONENTS-------------------------------------
+//-------------------------------FUNCTIONS--------------------------------------
 export class MainView extends React.Component {
   constructor() {
     super();
@@ -75,6 +75,7 @@ export class MainView extends React.Component {
     })
     .then(response => {
       this.props.setMovies(response.data);
+      localStorage.setItem('local-storage-movies', JSON.stringify(response.data));
     })
     .catch(function (error) {
       console.log(error);

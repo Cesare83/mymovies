@@ -1,3 +1,4 @@
+//-------------------------------IMPORT MODULES---------------------------------
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import { connect } from 'react-redux';
@@ -5,7 +6,7 @@ import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
 import './director-view.scss';
 
-//-------------------------------COMPONENTS-------------------------------------
+//-------------------------------FUNCTIONS--------------------------------------
 function DirectorView(props) {
 
   const { movies, directorName } = props;

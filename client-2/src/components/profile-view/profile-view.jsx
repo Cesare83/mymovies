@@ -1,6 +1,7 @@
 //-------------------------------IMPORT MODULES---------------------------------
 import React from 'react';
 import axios from 'axios';
+
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import ListGroup from 'react-bootstrap/ListGroup';
@@ -9,7 +10,7 @@ import { Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './profile-view.scss';
 
-//-------------------------------COMPONENTS-------------------------------------
+//-------------------------------COMPONENT--------------------------------------
 export class ProfileView extends React.Component {
   constructor() {
     super();
@@ -150,9 +151,9 @@ export class ProfileView extends React.Component {
             <div className="value">{birthday}</div>
           </div>
           <div className="favourite-movies">
-            <h2 className="label">Favourite Movies</h2>
+          <h2 className="label">Favourite Movies</h2>
             {favouriteMovies.length > 0 &&
-              <div className="value">{favouriteMovies.map(favMovie => (<div className="fav-movie-item" key={favMovie}>{JSON.parse(localStorage.getItem('local-storage-movies')).find(movie => movie._id === favMovie).Title}<Link className="trash-icon" variant="link" onClick={(event) => this.handleDeleteMovie(event, favMovie)}><img src="https://img.icons8.com/material-outlined/24/000000/delete-trash.png" alt="trash can icon"/></Link></div>))}</div>
+            <div className="value">{favouriteMovies.map(favMovie => (<div className="fav-movie-item" key={favMovie}>{JSON.parse(localStorage.getItem('local-storage-movies')).find(movie => movie._id === favMovie).Title}<Link className="trash-icon" variant="link" onClick={(event) => this.handleDeleteMovie(event, favMovie)}><img src="https://img.icons8.com/material-outlined/24/000000/delete-trash.png" alt="trash can icon"/></Link></div>))}</div>
             }
           </div>
           <Button className="standard-button buttons-next" variant="link" onClick={() => this.showForm()}>Update Profile</Button>
