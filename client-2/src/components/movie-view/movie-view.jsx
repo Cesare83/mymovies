@@ -55,7 +55,7 @@ function MovieView(props) {
       </div>
       <div className="right-container">
         <img className="movie-poster" src={movie.ImagePath} alt="movie poster" />
-        <Button className="standard-button" variant="link" onClick={event => this.handleLike(event)}>Like</Button>
+        <Button className="standard-button" variant="link" onClick={event => handleLike(event)}>Like</Button>
       </div>
     </div>
   )
