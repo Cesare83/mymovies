@@ -1,12 +1,16 @@
 .card {
-  margin: 2%;
-  border-left: 2.5vw solid #fc4a1a;
-  border-radius: 0px;
+  margin: 8% 2% 2% 2%;
+  border: none;
+  border-left: 1.5vw solid #fc4a1a;
 }
 
 .details-button-container {
   display: flex;
   justify-content: flex-end;
+}
+
+#view-details-button {
+  margin-top: 5%;
 }
 
 .h2 {

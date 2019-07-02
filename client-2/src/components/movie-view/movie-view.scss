@@ -1,11 +1,15 @@
-.movie-view {
+#movie-title{
+  font-size: 2.8vh;
+}
+
+.left-container {
   display: grid;
-  grid-template-columns: 50% 50%;
 }
 
 .movie-poster {
-  max-height: 50vh;
-  margin-bottom: 5%;
+  width: 50vw;
+  max-width: 300px;
+  margin-bottom: 8%;
 }
 
 .movie-director {
@@ -16,8 +20,32 @@
   padding-right: 10px;
 }
 
-.right-container {
-  display: grid;
-  grid-template-rows: auto auto;
+.image-container {
   margin: auto;
+}
+
+.right-container {
+  display: none;
+}
+
+
+.movie-description, .movie-genre, .movie-director {
+  margin-top: 5vh;
+}
+
+@media only screen and (min-width: 750px) {
+
+  .movie-view {
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+
+  .right-container {
+    display: grid;
+    margin: auto;
+  }
+
+  .image-container {
+    display: none;
+  }
 }

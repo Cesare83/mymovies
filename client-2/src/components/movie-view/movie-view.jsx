@@ -35,9 +35,11 @@ function MovieView(props) {
   return (
     <div className="movie-view">
       <div className="left-container">
+        <div className="image-container">
+          <img className="movie-poster" src={movie.ImagePath} alt="movie poster" />
+        </div>
         <div className="movie-title">
-          <h2 className="label">Title</h2>
-          <div className="value">{movie.Title}</div>
+          <h2 className="label" id="movie-title">{movie.Title}</h2>
         </div>
         <div className="movie-description">
           <h2 className="label">Description</h2>
@@ -51,11 +53,13 @@ function MovieView(props) {
           <h2 className="label">Director</h2>
           <Link to={`/directors/${movie.Director.Name}`}>{movie.Director.Name}</Link>
         </div>
-          <Link to={'/'}><Button className="standard-button" variant="link">Back</Button></Link>
+        <div className="buttons-container">
+          <Button className="standard-button buttons-next" variant="link" onClick={event => handleLike(event)}>Like</Button>
+          <Link to={'/'}><Button className="standard-button buttons-next" variant="link">Back</Button></Link>
+        </div>
       </div>
       <div className="right-container">
         <img className="movie-poster" src={movie.ImagePath} alt="movie poster" />
-        <Button className="standard-button" variant="link" onClick={event => handleLike(event)}>Like</Button>
       </div>
     </div>
   )
