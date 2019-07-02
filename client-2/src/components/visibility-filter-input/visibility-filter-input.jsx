@@ -2,18 +2,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
-import Form from 'react-bootstrap/Form';
-
 import { setFilter } from '../../actions/actions';
 
-//-------------------------------FUNCTIONS--------------------------------------
+import Form from 'react-bootstrap/Form';
+import './visibility-filter-input.scss';
+
+//-------------------------------FUNCTION--------------------------------------
 function VisibilityFilterInput(props) {
-  return <Form.Control
-    onChange={e => props.setFilter(e.target.value)}
-    value={props.visibilityFilter}
-    placeholder="filter"
-  />;
+  return <div className="container">
+    <Form.Control className="visibility-filter"
+      onChange={e => props.setFilter(e.target.value)}
+      value={props.visibilityFilter}
+      placeholder="search movie by title"
+    />
+  </div>
 }
 
 //----------------------------------STORE CONNECTION----------------------------

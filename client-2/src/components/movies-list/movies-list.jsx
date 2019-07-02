@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import VisibilityFilterInput from '../visibility-filter-input/visibility-filter-input';
 import { MovieCard } from '../movie-card/movie-card';
 
-//-------------------------------FUNCTIONS--------------------------------------
+//-------------------------------FUNCTION---------------------------------------
 
 //copy the movies array whith concat() and sort it
 const mapStateToProps = state => {
@@ -18,7 +18,7 @@ const mapStateToProps = state => {
   });
 
   if (visibilityFilter !== '') {
-    moviesToShow = moviesToShow.filter(movie => movie.title.includes(visibilityFilter));
+    moviesToShow = moviesToShow.filter(movie => movie.Title.toLowerCase().includes(visibilityFilter.toLowerCase()));
   }
 
   return { movies: moviesToShow };
