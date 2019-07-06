@@ -91,7 +91,12 @@ export class MainView extends React.Component {
           <div className="menue">
             <header>
               <div className="header-innercontainer">
-                <h1>Bud Spencer Movies</h1>
+                <div className="svg-container">
+                  <svg class="svg-title" width="400" height="300" viewBox="0 0 400 300">
+                    <text class="svg-bud-spencer" font-size="110px" text-anchor="middle" x="200" y="130">Bud Spencer</text>
+                    <text class="svg-movies" font-size="85px" text-anchor="middle" x="200" y="250">movies</text>
+                  </svg>
+                </div>
                 <div className="menue-buttons-container">
                   <Link id="profile-button" to={'/profile'}>
                     <Button className="menue-buttons" variant="link">MyProfile</Button>

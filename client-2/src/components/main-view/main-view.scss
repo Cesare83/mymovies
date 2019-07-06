@@ -39,7 +39,7 @@ h2 {
 
 .main-view {
   display: grid;
-  grid-template-rows: auto auto;
+  grid-template-rows: 30vh auto;
 }
 
 .menue {
@@ -51,8 +51,20 @@ h2 {
   display: grid;
   grid-template-columns: auto auto;
   max-width: 1000px;
-  padding: 5vh;
   margin: auto;
+}
+
+.svg-title {
+  max-height: 25vh;
+  font-family: "Anton";
+}
+
+.svg-bud-spencer {
+  fill: #fff;
+}
+
+.svg-movies {
+  fill: #fff;
 }
 
 .page {
