@@ -44,7 +44,7 @@ h2 {
 
 .menue {
   margin-top: 5vh;
-  background-color: #fc4a1a;
+  background-color: #fff;
 }
 
 .header-innercontainer {
@@ -54,17 +54,25 @@ h2 {
   margin: auto;
 }
 
+.img-container {
+  grid-template-columns: auto auto;
+}
+
+.logo {
+  max-height: 22vh;
+}
+
 .svg-title {
   max-height: 25vh;
   font-family: "Anton";
 }
 
 .svg-bud-spencer {
-  fill: #fff;
+  fill: #fc4a1a;
 }
 
 .svg-movies {
-  fill: #fff;
+  fill: #fc4a1a;
 }
 
 .page {
@@ -80,10 +88,10 @@ h2 {
 }
 
 .menue-buttons:hover {
-  color: #fff;
+  color: #fc4a1a;
 }
 
 .menue-buttons {
-  color: #fff;
+  color: #fc4a1a;
   font-size: 2vh;
 }
