@@ -95,8 +95,8 @@ export class MainView extends React.Component {
                 <div className="img-container">
                   <img className="logo" src={logo} alt="Bud face"/>
                   <svg class="svg-title" width="400" height="300" viewBox="0 0 400 300">
-                    <text class="svg-bud-spencer" font-size="110px" text-anchor="middle" x="200" y="130">Bud Spencer</text>
-                    <text class="svg-movies" font-size="85px" text-anchor="end" x="200" y="250">movies</text>
+                    <text class="svg-bud-spencer" font-size="100px" text-anchor="middle" x="200" y="130">Bud Spencer</text>
+                    <text class="svg-movies" font-size="80px" text-anchor="end" x="200" y="250">movies</text>
                   </svg>
                 </div>
                 <div className="menue-buttons-container">

@@ -18,8 +18,7 @@ function DirectorView(props) {
     return (
       <div className="director-view">
        <div className="director-name">
-         <h2 className="label">Name</h2>
-         <div className="value">{director.Name}</div>
+        <h2 className="subview-title">{director.Name}</h2>
        </div>
        <div className="director-bio">
          <h2 className="label">Biography</h2>

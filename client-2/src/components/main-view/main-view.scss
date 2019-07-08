@@ -14,25 +14,32 @@ h2 {
 }
 
 .label {
-  margin: 5% 0 5% 5%;
+  margin: 5%;
 }
 
 .standard-button {
-  color: #fc4a1a;
+  color: #c62168;
   background-color: #fff;
-  border: 2px solid #fc4a1a;
+  border: 2px solid #c62168;
   border-radius: 50px;
 }
 
 .standard-button:hover {
   color: #fff;
-  background-color: #fc4a1a;
+  background-color: #c62168;
   text-decoration: none;
 }
 
 .buttons-next {
   margin-right: 10px;
   margin-top: 10px;
+}
+
+.subview-title {
+  margin-top: 6vh;
+  margin-bottom: 3vh;
+  font-size: 3.5vh;
+  text-align: center;
 }
 
 //-------------------------MAIN PAGE FEATURES-----------------------------------
@@ -68,11 +75,11 @@ h2 {
 }
 
 .svg-bud-spencer {
-  fill: #fc4a1a;
+  fill: #c62168;
 }
 
 .svg-movies {
-  fill: #fc4a1a;
+  fill: #c62168;
 }
 
 .page {
@@ -88,10 +95,10 @@ h2 {
 }
 
 .menue-buttons:hover {
-  color: #fc4a1a;
+  color: #c62168;
 }
 
 .menue-buttons {
-  color: #fc4a1a;
+  color: #c62168;
   font-size: 2vh;
 }

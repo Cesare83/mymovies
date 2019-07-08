@@ -1,5 +1,13 @@
-#movie-title{
-  font-size: 2.8vh;
+.movie-view-container{
+  display: grid;
+}
+
+.movie-title-mobile {
+  display: grid;
+}
+
+.movie-title-desktop {
+  display: none;
 }
 
 .left-container {
@@ -35,9 +43,17 @@
 
 @media only screen and (min-width: 750px) {
 
-  .movie-view {
+  .movie-view-container {
     display: grid;
     grid-template-columns: 50% 50%;
+  }
+
+  .movie-title-desktop {
+    display: grid;
+  }
+
+  .movie-title-mobile {
+    display: none;
   }
 
   .right-container {
