@@ -7,12 +7,10 @@
 
 .movie-title-mobile {
   display: grid;
-  margin-bottom: 5vh;
 }
 
 .movie-title-desktop {
   display: none;
-  margin-bottom: 5vh;
 }
 
 .left-container {
@@ -29,13 +27,8 @@
   margin-bottom: 10vh;
 }
 
-.left-container {
-  padding-right: 10%;
-
-}
-
 .image-container {
-  margin: auto;
+  margin: 5vh auto 0 auto;
 }
 
 .right-container {
@@ -44,7 +37,7 @@
 
 
 .movie-description, .movie-genre, .movie-director {
-  margin-top: 5vh;
+  margin-top: 2vh;
 }
 
 @media only screen and (min-width: 750px) {
@@ -56,18 +49,28 @@
 
   .movie-title-desktop {
     display: grid;
+    margin-bottom: 3vh;
   }
 
   .movie-title-mobile {
     display: none;
   }
 
+  .left-container {
+    padding-right: 10%;
+  }
+
   .right-container {
-    display: grid;
+    display: flex;
+    align-items: center;
     margin-right: 0px;
   }
 
   .image-container {
     display: none;
+  }
+
+  .movie-description, .movie-genre, .movie-director {
+    margin-top: 5vh;
   }
 }

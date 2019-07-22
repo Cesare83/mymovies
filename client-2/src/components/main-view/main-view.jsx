@@ -87,6 +87,7 @@ export class MainView extends React.Component {
     const { user, movies } = this.state;
 
     return (
+
       <Router>
         <div className="main-view">
           <div className="menue">
@@ -94,8 +95,8 @@ export class MainView extends React.Component {
               <div className="header-innercontainer">
                 <div className="top-container">
                   <img className="logo" src={logo} alt="Bud face"/>
-                  <svg class="svg-title" width="900" height="150" viewBox="0 0 900 150">
-                    <text class="svg-bud-spencer" font-size="110px" text-anchor="middle" x="450" y="110">Bud Spencer Movies</text>
+                  <svg class="svg-title" width="900" height="100" viewBox="0 0 900 100">
+                    <text class="svg-bud-spencer" font-size="105px" text-anchor="middle" x="450" y="90">Bud Spencer Movies</text>
                   </svg>
                 </div>
                 <div className="menue-buttons-container">
@@ -125,9 +126,10 @@ export class MainView extends React.Component {
 
             <Route exact path="/genres/:name" render={({ match }) => <GenreView genreName={match.params.name}/>}/>
 
-          </div>
         </div>
+      </div>
       </Router>
+
     );
   }
 }
