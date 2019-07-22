@@ -9,8 +9,8 @@ import './visibility-filter-input.scss';
 
 //-------------------------------FUNCTION--------------------------------------
 function VisibilityFilterInput(props) {
-  return <div className="container">
-    <Form.Control id="visibility-filter"
+  return <div className="visibility-filter">
+    <Form.Control id="movie-filter"
       onChange={e => props.setFilter(e.target.value)}
       value={props.visibilityFilter}
       placeholder="search movie by title"

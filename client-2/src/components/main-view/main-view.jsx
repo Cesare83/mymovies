@@ -92,16 +92,15 @@ export class MainView extends React.Component {
           <div className="menue">
             <header>
               <div className="header-innercontainer">
-                <div className="img-container">
+                <div className="top-container">
                   <img className="logo" src={logo} alt="Bud face"/>
-                  <svg class="svg-title" width="400" height="300" viewBox="0 0 400 300">
-                    <text class="svg-bud-spencer" font-size="100px" text-anchor="middle" x="200" y="130">Bud Spencer</text>
-                    <text class="svg-movies" font-size="80px" text-anchor="end" x="200" y="250">movies</text>
+                  <svg class="svg-title" width="900" height="150" viewBox="0 0 900 150">
+                    <text class="svg-bud-spencer" font-size="110px" text-anchor="middle" x="450" y="110">Bud Spencer Movies</text>
                   </svg>
                 </div>
                 <div className="menue-buttons-container">
                   <Link id="profile-button" to={'/profile'}>
-                    <Button className="menue-buttons" variant="link">MyProfile</Button>
+                  <Button className="menue-buttons" variant="link">MyProfile</Button>
                   </Link>
                   <Button className="menue-buttons" variant="link" onClick={() => this.logOut()}>Log Out</Button>
                 </div>
