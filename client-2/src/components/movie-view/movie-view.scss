@@ -1,13 +1,18 @@
+
+
 .movie-view-container{
   display: grid;
+  margin-bottom: 4vh;
 }
 
 .movie-title-mobile {
   display: grid;
+  margin-bottom: 5vh;
 }
 
 .movie-title-desktop {
   display: none;
+  margin-bottom: 5vh;
 }
 
 .left-container {
@@ -25,7 +30,8 @@
 }
 
 .left-container {
-  padding-right: 10px;
+  padding-right: 10%;
+
 }
 
 .image-container {
@@ -45,7 +51,7 @@
 
   .movie-view-container {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: auto auto;
   }
 
   .movie-title-desktop {
@@ -58,7 +64,7 @@
 
   .right-container {
     display: grid;
-    margin: auto;
+    margin-right: 0px;
   }
 
   .image-container {

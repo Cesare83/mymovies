@@ -1,9 +1,14 @@
-.profile-view {
-  margin-top: 5vh;
+.view-border-profileview {
+  display: flex;
+  justify-content: flex-end;
+  width: 60vw;
+  border-top: 5px solid #c62168;
+  margin: auto;
+  padding: 1% 1% 0 0;
 }
 
-.update-profile-container, .profile-view-container{
-  margin-bottom: 10vh;
+.profile-details-container {
+  padding: 5vw;
 }
 
 .fav-movie-item {
@@ -16,4 +21,8 @@
 
 .email, .birthday, .favourite-movies {
   margin-top: 5vh;
+}
+
+.favourite-movies {
+  margin-bottom: 5vh;
 }

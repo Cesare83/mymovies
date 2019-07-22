@@ -17,22 +17,27 @@ h2 {
   margin: 5%;
 }
 
+.view-border {
+  display: flex;
+  justify-content: flex-end;
+  width: 80%;
+  border-top: 5px solid #c62168;
+  margin: auto;
+  padding: 1% 1% 0 0;
+}
+
 .standard-button {
   color: #c62168;
   background-color: #fff;
   border: 2px solid #c62168;
   border-radius: 50px;
+  margin-left: 1vw;
 }
 
 .standard-button:hover {
   color: #fff;
   background-color: #c62168;
   text-decoration: none;
-}
-
-.buttons-next {
-  margin-right: 10px;
-  margin-top: 10px;
 }
 
 .subview-title {
@@ -84,8 +89,8 @@ h2 {
 
 .page {
   max-width: 1000px;
-  padding: 5vh;
-  margin: auto;
+  padding: 0 10vh 0 10vh;
+  margin: 10vh auto 10vh auto;
 }
 
 .menue-buttons-container {

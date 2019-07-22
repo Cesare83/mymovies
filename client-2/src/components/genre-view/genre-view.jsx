@@ -15,6 +15,7 @@ function GenreView(props) {
 
   return (
     <div className="genre-view">
+      <div className="view-border"></div>
       <div className="genre-name">
         <h2 className="subview-title">{genre.Name}</h2>
       </div>
@@ -22,7 +23,11 @@ function GenreView(props) {
         <h2 className="label">Description</h2>
         <div id="genre-description-text" className="description-text">{genre.Description}</div>
       </div>
-      <Link to={'/'}><Button className="standard-button" variant="link">Back</Button></Link>
+      <div className="view-border">
+        <div className="button-container">
+          <Link to={'/'}><Button className="standard-button" variant="link">Back</Button></Link>
+        </div>
+      </div>
     </div>
     );
 }

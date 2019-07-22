@@ -135,35 +135,44 @@ export class ProfileView extends React.Component {
 
     return (
       <div className="profile-view">
-        {
-        !this.state.showForm?
-        <div className="profile-view-container">
-          <div className="username">
-            <h2 className="label">Username</h2>
-            <div className="value">{username}</div>
+        <div className="view-border-profileview"></div>
+          {
+            !this.state.showForm?
+            <div className="profile-view-container">
+              <div className="profile-details-container">
+                <div className="username">
+                  <h2 className="label">Username</h2>
+                  <div className="value">{username}</div>
+                </div>
+                <div className="email">
+                  <h2 className="label">Email</h2>
+                  <div className="value">{email}</div>
+                </div>
+                <div className="birthday">
+                  <h2 className="label">Birthday</h2>
+                  <div className="value">{birthday}</div>
+                </div>
+                <div className="favourite-movies">
+                  <h2 className="label">Favourite Movies</h2>
+                  {favouriteMovies.length > 0 &&
+                    <div className="value">{favouriteMovies.map(favMovie => (<div className="fav-movie-item" key={favMovie}>{JSON.parse(localStorage.getItem('local-storage-movies')).find(movie => movie._id === favMovie).Title}<Link className="trash-icon" variant="link" onClick={(event) => this.handleDeleteMovie(event, favMovie)}><img src="https://img.icons8.com/material-outlined/24/000000/delete-trash.png" alt="trash can icon"/></Link></div>))}</div>
+                  }
+                </div>
+              </div>
+          <div className="view-border-profileview">
+            <div className="button-container">
+              <Button className="standard-button buttons-next" variant="link" onClick={() => this.showForm()}>Update</Button>
+              <Button className="standard-button buttons-next" variant="link" onClick={() => this.handleDelete()}>Delete</Button>
+              <Link to={'/'}><Button className="standard-button" variant="link">Back</Button></Link>
+            </div>
           </div>
-          <div className="email">
-            <h2 className="label">Email</h2>
-            <div className="value">{email}</div>
-          </div>
-          <div className="birthday">
-            <h2 className="label">Birthday</h2>
-            <div className="value">{birthday}</div>
-          </div>
-          <div className="favourite-movies">
-          <h2 className="label">Favourite Movies</h2>
-            {favouriteMovies.length > 0 &&
-            <div className="value">{favouriteMovies.map(favMovie => (<div className="fav-movie-item" key={favMovie}>{JSON.parse(localStorage.getItem('local-storage-movies')).find(movie => movie._id === favMovie).Title}<Link className="trash-icon" variant="link" onClick={(event) => this.handleDeleteMovie(event, favMovie)}><img src="https://img.icons8.com/material-outlined/24/000000/delete-trash.png" alt="trash can icon"/></Link></div>))}</div>
-            }
-          </div>
-          <Button className="standard-button buttons-next" variant="link" onClick={() => this.showForm()}>Update Profile</Button>
-          <Button className="standard-button buttons-next" variant="link" onClick={() => this.handleDelete()}>Delete Profile</Button>
         </div>
         :null
         }
         {
           this.state.showForm?
           <div className="update-profile-container">
+            <div className="profile-details-container">
             <Form>
               <Form.Group controlId="formNewUsername">
                 <Form.Label>Username</Form.Label>
@@ -181,13 +190,17 @@ export class ProfileView extends React.Component {
                 <Form.Label>Birthday</Form.Label>
                 <Form.Control type="date" value={newbirthday} onChange={event => this.setState({newbirthday: event.target.value})} placeholder="MM/DD/YY"/>
               </Form.Group>
-              <Button className="standard-button" variant="link" onClick={event => this.handleUpdate(event)}>Update</Button>
             </Form>
+            </div>
+            <div className="view-border-profileview">
+              <div className="button-container">
+                <Button className="standard-button" variant="link" onClick={event => this.handleUpdate(event)}>Confirm</Button>
+                <Link to={'/'}><Button className="standard-button" variant="link">Back</Button></Link>
+              </div>
+            </div>
           </div>
           :null
         }
-
-      <Link to={'/'}><Button className="standard-button" variant="link">Back</Button></Link>
     </div>
     );
   }
