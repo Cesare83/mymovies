@@ -4,9 +4,7 @@ import axios from 'axios';
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import ListGroup from 'react-bootstrap/ListGroup';
 
-import { Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './profile-view.scss';
 
@@ -131,7 +129,7 @@ export class ProfileView extends React.Component {
 
   render() {
 
-    const {username, password, email, birthday, newusername, newpassword, newemail, newbirthday, favouriteMovies, showForm} = this.state;
+    const {username, email, birthday, newusername, newpassword, newemail, newbirthday, favouriteMovies} = this.state;
 
     return (
       <div className="profile-view">
@@ -142,20 +140,20 @@ export class ProfileView extends React.Component {
               <div className="profile-details-container">
                 <div className="username">
                   <h2 className="label">Username</h2>
-                  <div className="value">{username}</div>
+                  <div className="description-text">{username}</div>
                 </div>
                 <div className="email">
                   <h2 className="label">Email</h2>
-                  <div className="value">{email}</div>
+                  <div className="description-text">{email}</div>
                 </div>
                 <div className="birthday">
                   <h2 className="label">Birthday</h2>
-                  <div className="value">{birthday}</div>
+                  <div className="description-text">{birthday}</div>
                 </div>
                 <div className="favourite-movies">
                   <h2 className="label">Favourite Movies</h2>
                   {favouriteMovies.length > 0 &&
-                    <div className="value">{favouriteMovies.map(favMovie => (<div className="fav-movie-item" key={favMovie}>{JSON.parse(localStorage.getItem('local-storage-movies')).find(movie => movie._id === favMovie).Title}<Link className="trash-icon" variant="link" onClick={(event) => this.handleDeleteMovie(event, favMovie)}><img src="https://img.icons8.com/material-outlined/24/000000/delete-trash.png" alt="trash can icon"/></Link></div>))}</div>
+                  <div className="description-text">{favouriteMovies.map(favMovie => (<div className="fav-movie-item" key={favMovie}>{JSON.parse(localStorage.getItem('local-storage-movies')).find(movie => movie._id === favMovie).Title}<Link className="trash-icon" variant="link" onClick={(event) => this.handleDeleteMovie(event, favMovie)}><img src="https://img.icons8.com/material-outlined/24/000000/delete-trash.png" alt="trash can icon"/></Link></div>))}</div>
                   }
                 </div>
               </div>

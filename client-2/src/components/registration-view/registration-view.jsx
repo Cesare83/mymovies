@@ -36,7 +36,7 @@ export function RegistrationView(props) {
 
   return(
     <div className="registration-view">
-    <Form id="register-form">
+    <Form className="register-form">
       <Form.Group controlId="formNewUsername">
         <Form.Label>Username</Form.Label>
         <Form.Control type="text" value={username} onChange={e => setUsername(e.target.value)} placeholder="enter your username"/>

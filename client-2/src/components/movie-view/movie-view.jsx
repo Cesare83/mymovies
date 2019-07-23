@@ -36,7 +36,7 @@ function MovieView(props) {
     <div className="movie-view">
       <div className="view-border"></div>
       <div className="movie-title-desktop">
-        <h2 className="subview-title">{movie.Title}</h2>
+        <h1 className="subview-title">{movie.Title}</h1>
       </div>
       <div className="movie-view-container">
         <div className="left-container">
@@ -44,7 +44,7 @@ function MovieView(props) {
             <img className="movie-poster" src={movie.ImagePath} alt="movie poster" />
           </div>
           <div className="movie-title-mobile">
-            <h2 className="label" id="movie-title">{movie.Title}</h2>
+            <h1 className="label" id="movie-title">{movie.Title}</h1>
           </div>
           <div className="movie-description">
             <h2 className="label">Description</h2>

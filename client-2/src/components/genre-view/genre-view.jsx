@@ -20,7 +20,6 @@ function GenreView(props) {
         <h2 className="subview-title">{genre.Name}</h2>
       </div>
       <div className="genre-description">
-        <h2 className="label">Description</h2>
         <div id="genre-description-text" className="description-text">{genre.Description}</div>
       </div>
       <div className="view-border">

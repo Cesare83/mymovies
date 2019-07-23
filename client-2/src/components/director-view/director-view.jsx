@@ -22,7 +22,6 @@ function DirectorView(props) {
         <h2 className="subview-title">{director.Name}</h2>
        </div>
        <div className="director-bio">
-         <h2 className="label">Biography</h2>
          <div className="description-text">{director.Bio}</div>
        </div>
        <div className="director-birth">

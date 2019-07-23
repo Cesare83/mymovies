@@ -84,7 +84,7 @@ export class MainView extends React.Component {
   }
 
   render() {
-    const { user, movies } = this.state;
+    const { user } = this.state;
 
     return (
 
