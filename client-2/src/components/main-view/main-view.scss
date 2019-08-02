@@ -1,4 +1,10 @@
+$base-color: #c62168;
+
 //--------------------------COMMON FEATURES-------------------------------------
+a {
+  color: $base-color;
+}
+
 h1 {
   font-size: 2.4vh;
 }
@@ -21,15 +27,15 @@ h2 {
   display: flex;
   justify-content: flex-end;
   width: 80%;
-  border-top: 5px solid #c62168;
+  border-top: 5px solid $base-color;
   margin: auto;
   padding: 1vw 1vw 0 0;
 }
 
 .standard-button {
-  color: #c62168;
+  color: $base-color;
   background-color: #fff;
-  border: 2px solid #c62168;
+  border: 2px solid $base-color;
   border-radius: 50px;
   margin-left: 1vw;
   font-size: 1.8vh;
@@ -37,7 +43,7 @@ h2 {
 
 .standard-button:hover {
   color: #fff;
-  background-color: #c62168;
+  background-color: $base-color;
   text-decoration: none;
 }
 
@@ -84,11 +90,11 @@ h2 {
 }
 
 .svg-bud-spencer {
-  fill: #c62168;
+  fill: $base-color;
 }
 
 .svg-movies {
-  fill: #c62168;
+  fill: $base-color;
 }
 
 .menue-buttons-container {
@@ -97,11 +103,11 @@ h2 {
 }
 
 .menue-buttons:hover {
-  color: #c62168;
+  color: $base-color;
 }
 
 .menue-buttons {
-  color: #c62168;
+  color: $base-color;
   font-size: 2vh;
 }
 

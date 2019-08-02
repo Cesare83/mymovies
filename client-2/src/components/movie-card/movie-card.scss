@@ -2,15 +2,12 @@
   margin: 8% 2% 2% 2%;
   border: none;
   border-left: 1.5vw solid #c62168;
+  border-radius: 0;
 }
 
 .details-button-container {
   display: flex;
   justify-content: flex-end;
-}
-
-#view-details-button {
-  margin-top: 5%;
 }
 
 .h2 {
