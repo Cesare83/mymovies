@@ -10,6 +10,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Cesare83/mymovies.git"
+    "heroku-postbuild": "cd client-2 && npm install && npm run build"
   },
   "author": "Cesare83",
   "license": "ISC",
