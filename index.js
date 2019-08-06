@@ -35,7 +35,7 @@ const Movies = Models.Movie;
 const Users = Models.User;
 
 //route requests for static files to public folder
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, '/client-2/build')));
 
 //invoke morgan => requests logged used Morgan´s common format!! (::1 - - [30/Nov/2018:05:43:09 +0000] 'GET /secreturl HTTP/1.1' 200 51)
 app.use(morgan('common'));
