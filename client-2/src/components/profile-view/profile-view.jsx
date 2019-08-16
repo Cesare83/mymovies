@@ -139,7 +139,7 @@ export class ProfileView extends React.Component {
             <div className="profile-view-container">
               <div className="profile-details-container">
                 <div className="username">
-                  <h2 className="label">Username</h2>
+                  <h2 className="label username-label">Username</h2>
                   <div className="description-text">{username}</div>
                 </div>
                 <div className="email">
@@ -147,7 +147,7 @@ export class ProfileView extends React.Component {
                   <div className="description-text">{email}</div>
                 </div>
                 <div className="birthday">
-                  <h2 className="label">Birthday</h2>
+                  <h2 className="label" id="jojo">Birthday</h2>
                   <div className="description-text">{birthday}</div>
                 </div>
                 <div className="favourite-movies">

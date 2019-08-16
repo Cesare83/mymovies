@@ -1,7 +1,13 @@
+.profile-view {
+  width: 70vw;
+  max-width: 800px;
+  margin: auto;
+}
+
 .view-border-profileview {
   display: flex;
   justify-content: flex-end;
-  width: 60vw;
+  width: 100%;
   border-top: 5px solid #c62168;
   margin: auto;
   padding: 1% 1% 0 0;
@@ -9,6 +15,10 @@
 
 .profile-details-container {
   padding: 5vw;
+}
+
+.username, .email, .birthday {
+  margin-bottom: 7vh;
 }
 
 .fav-movie-item {
